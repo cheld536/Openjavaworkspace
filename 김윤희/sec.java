@@ -320,8 +320,8 @@ public class sec {
 			
 			@Override
 			public void actionPerformed(ActionEvent e){
-				secpage.setVisible(false);
-				startpage.setVisible(true);
+				secpage.setVisible(true);
+				startpage.setVisible(false);
 				thridpage.setVisible(false);
 				endpage.setVisible(false);
 			}
