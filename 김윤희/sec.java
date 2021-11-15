@@ -253,8 +253,13 @@ public class sec {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnEnd.setBounds(334, 399, 110, 58);
+		btnEnd.setBounds(412, 393, 110, 58);
 		endpage.add(btnEnd);
+		
+		JButton btnlastpage = new JButton("\uB418\uB3CC\uC544\uAC00\uAE30");
+		btnlastpage.setBackground(Color.GREEN);
+		btnlastpage.setBounds(265, 393, 110, 58);
+		endpage.add(btnlastpage);
 		
 		/* 처음 화면 보이기 설정*/
 		
@@ -341,8 +346,17 @@ public class sec {
 		
 		
 		/*네번째 페이지*/
-		
-	btnEnd.addActionListener(new ActionListener() {
+	btnlastpage.addActionListener(new ActionListener() {		//처음으로 돌아간다.
+		public void actionPerformed(ActionEvent e) {
+			secpage.setVisible(false);
+			startpage.setVisible(true);
+			thridpage.setVisible(false);
+			endpage.setVisible(false);
+		}
+		});
+			
+	
+	btnEnd.addActionListener(new ActionListener() {				// 나가기 버튼
 		public void actionPerformed(ActionEvent e) {
 		System.exit(0);
 		}
