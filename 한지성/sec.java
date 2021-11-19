@@ -60,10 +60,10 @@ public class sec {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("\uC54C\uB7EC\uC9C0\uD310\uBCC4\uD504\uB85C\uADF8\uB7A8");
-		frame.setBounds(100, 100, 815, 725);						// È­¸é Å©±â
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		// ÇÁ·Î±×·¥ Á¾·áÈÄ ·Îµù Á¾·á
-		frame.getContentPane().setLayout(null);						// ·¹ÀÌ¾Æ¿ô ¼³Á¤
-		frame.setLocationRelativeTo(null);							//È­¸é Á¤Áß¾Ó¿¡ Ãâ·Â
+		frame.setBounds(100, 100, 815, 725);						// í™”ë©´ í¬ê¸°
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		// í”„ë¡œê·¸ë¨ ì¢…ë£Œí›„ ë¡œë”© ì¢…ë£Œ
+		frame.getContentPane().setLayout(null);						// ë ˆì´ì•„ì›ƒ ì„¤ì •
+		frame.setLocationRelativeTo(null);							//í™”ë©´ ì •ì¤‘ì•™ì— ì¶œë ¥
 		
 		
 		JPanel startpage = new JPanel();
@@ -75,13 +75,13 @@ public class sec {
 		JButton btnstart = new JButton("\uC2DC\uC791");
 		btnstart.setBounds(513, 403, 164, 62);
 		btnstart.setBackground(Color.GREEN);
-		btnstart.setFont(new Font("HYÇìµå¶óÀÎM", Font.PLAIN, 25));
+		btnstart.setFont(new Font("HYí—¤ë“œë¼ì¸M", Font.PLAIN, 25));
 		startpage.add(btnstart);
 		
 		JButton btnExit = new JButton("\uC885\uB8CC");
 		btnExit.setBounds(513, 489, 164, 62);
 		btnExit.setBackground(Color.RED);
-		btnExit.setFont(new Font("HYÇìµå¶óÀÎM", Font.PLAIN, 25));
+		btnExit.setFont(new Font("HYí—¤ë“œë¼ì¸M", Font.PLAIN, 25));
 		startpage.add(btnExit);
 		
 		JLabel lblNewLabel = new JLabel("\uD300\uC7A5 : \uCD5C\uBBFC\uAE30");
@@ -91,7 +91,7 @@ public class sec {
 		
 		JLabel lblNewLabel_1 = new JLabel("R\uB7ECG");
 		lblNewLabel_1.setBounds(253, 134, 274, 137);
-		lblNewLabel_1.setFont(new Font("±¼¸²", Font.PLAIN, 62));
+		lblNewLabel_1.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 62));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		startpage.add(lblNewLabel_1);
 		
@@ -101,19 +101,19 @@ public class sec {
 		
 		JLabel lblNewLabel_3 = new JLabel("- \uC2DD\uD488 \uC54C\uB808\uB974\uAE30 \uD655\uC778 \uD504\uB85C\uADF8\uB7A8  -");
 		lblNewLabel_3.setBounds(232, 267, 330, 29);
-		lblNewLabel_3.setFont(new Font("HY°ß°íµñ", Font.PLAIN, 19));
+		lblNewLabel_3.setFont(new Font("HYê²¬ê³ ë”•", Font.PLAIN, 19));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		startpage.add(lblNewLabel_3);
 		
 		JButton btnaddcs = new JButton("\uD68C\uC6D0\uAC00\uC785");
 		btnaddcs.setBounds(171, 489, 164, 62);
-		btnaddcs.setFont(new Font("HYÇìµå¶óÀÎM", Font.PLAIN, 25));
+		btnaddcs.setFont(new Font("HYí—¤ë“œë¼ì¸M", Font.PLAIN, 25));
 		btnaddcs.setBackground(SystemColor.activeCaption);
 		startpage.add(btnaddcs);
 		
 		JButton btnlongin = new JButton("\uB85C\uADF8\uC778");
 		btnlongin.setBounds(171, 403, 164, 62);
-		btnlongin.setFont(new Font("HYÇìµå¶óÀÎM", Font.PLAIN, 25));
+		btnlongin.setFont(new Font("HYí—¤ë“œë¼ì¸M", Font.PLAIN, 25));
 		btnlongin.setBackground(SystemColor.textHighlight);
 		startpage.add(btnlongin);
 		
@@ -226,7 +226,7 @@ public class sec {
 		secpage.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("\u203B \uC790\uC2E0\uC774 \uD574\uB2F9\uD558\uB294 \uC54C\uB7EC\uC9C0\uB97C \uCCB4\uD06C\uD574\uC8FC\uC138\uC694.");
-		lblNewLabel_5.setFont(new Font("±¼¸²", Font.BOLD, 14));
+		lblNewLabel_5.setFont(new Font("êµ´ë¦¼", Font.BOLD, 14));
 		lblNewLabel_5.setBounds(43, 73, 285, 23);
 		secpage.add(lblNewLabel_5);
 		
@@ -252,7 +252,7 @@ public class sec {
 		thridpage.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_8 = new JLabel("\uAC80\uC0C9\uD55C \uC74C\uC2DD\uC758 \uAC80\uC0C9 \uACB0\uACFC\uC785\uB2C8\uB2E4.");
-		lblNewLabel_8.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 19));
+		lblNewLabel_8.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 19));
 		lblNewLabel_8.setBounds(38, 119, 336, 23);
 		thridpage.add(lblNewLabel_8);
 		
@@ -263,7 +263,7 @@ public class sec {
 		endpage.setLayout(null);
 		
 		JLabel lblNewLabel_7 = new JLabel("\uAC10\uC0AC\uD569\uB2C8\uB2E4.");
-		lblNewLabel_7.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 63));
+		lblNewLabel_7.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 63));
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_7.setBounds(152, 182, 474, 174);
 		endpage.add(lblNewLabel_7);
@@ -289,7 +289,7 @@ public class sec {
 		
 		JButton loginbtn = new JButton("\uB85C\uADF8\uC778");
 		loginbtn.setBackground(Color.GRAY);
-		loginbtn.setFont(new Font("ÈŞ¸ÕµÕ±ÙÇìµå¶óÀÎ", Font.PLAIN, 12));
+		loginbtn.setFont(new Font("íœ´ë¨¼ë‘¥ê·¼í—¤ë“œë¼ì¸", Font.PLAIN, 12));
 		loginbtn.setForeground(Color.WHITE);
 		loginbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -321,19 +321,19 @@ public class sec {
 		JButton find_passward_btn = new JButton("\uBE44\uBC00\uBC88\uD638 \uCC3E\uAE30");
 		find_passward_btn.setForeground(Color.WHITE);
 		find_passward_btn.setBackground(Color.LIGHT_GRAY);
-		find_passward_btn.setFont(new Font("ÈŞ¸ÕµÕ±ÙÇìµå¶óÀÎ", Font.PLAIN, 12));
+		find_passward_btn.setFont(new Font("íœ´ë¨¼ë‘¥ê·¼í—¤ë“œë¼ì¸", Font.PLAIN, 12));
 		find_passward_btn.setBounds(396, 383, 127, 23);
 		login.add(find_passward_btn);
 		
 		JButton go_signup_btn = new JButton("\uD68C\uC6D0\uAC00\uC785");
 		go_signup_btn.setBackground(Color.LIGHT_GRAY);
 		go_signup_btn.setForeground(Color.WHITE);
-		go_signup_btn.setFont(new Font("ÈŞ¸ÕµÕ±ÙÇìµå¶óÀÎ", Font.PLAIN, 12));
+		go_signup_btn.setFont(new Font("íœ´ë¨¼ë‘¥ê·¼í—¤ë“œë¼ì¸", Font.PLAIN, 12));
 		go_signup_btn.setBounds(257, 383, 127, 23);
 		login.add(go_signup_btn);
 		
 		JButton login_behind_btn = new JButton("\u2190Behind");
-		login_behind_btn.setFont(new Font("ÈŞ¸Õ¿¾Ã¼", Font.PLAIN, 12));
+		login_behind_btn.setFont(new Font("íœ´ë¨¼ì˜›ì²´", Font.PLAIN, 12));
 		login_behind_btn.setBounds(12, 634, 101, 23);
 		login.add(login_behind_btn);
 		
@@ -344,7 +344,7 @@ public class sec {
 		
 		JButton signup_btn = new JButton("\uD68C\uC6D0\uAC00\uC785\uD558\uAE30");
 		signup_btn.setForeground(Color.WHITE);
-		signup_btn.setFont(new Font("ÈŞ¸ÕµÕ±ÙÇìµå¶óÀÎ", Font.PLAIN, 12));
+		signup_btn.setFont(new Font("íœ´ë¨¼ë‘¥ê·¼í—¤ë“œë¼ì¸", Font.PLAIN, 12));
 		signup_btn.setBackground(Color.GRAY);
 		signup_btn.setBounds(257, 368, 266, 35);
 		signup.add(signup_btn);
@@ -370,7 +370,7 @@ public class sec {
 		signup.add(lblNewLabel_9_1_1);
 		
 		JButton signup_firstpage_btn = new JButton("\u2190firstpage");
-		signup_firstpage_btn.setFont(new Font("ÈŞ¸Õ¿¾Ã¼", Font.PLAIN, 12));
+		signup_firstpage_btn.setFont(new Font("íœ´ë¨¼ì˜›ì²´", Font.PLAIN, 12));
 		signup_firstpage_btn.setBounds(12, 634, 104, 23);
 		signup.add(signup_firstpage_btn);
 		
@@ -402,16 +402,16 @@ public class sec {
 		signup.setVisible(false);
 		
 	
-		/* Ã³À½ È­¸é º¸ÀÌ±â ¼³Á¤*/
+		/* ì²˜ìŒ í™”ë©´ ë³´ì´ê¸° ì„¤ì •*/
 		
-		secpage.setVisible(false);     //Ã³À½ È­¸é ¸¸ º¸¿©ÁÖ±â À§ÇØ µÎ¹øÂ° ÆäÀÌÁö´Â º¸ÀÌÁö ¾Ê°Ô ¼³Á¤ÇÑ´Ù.
+		secpage.setVisible(false);     //ì²˜ìŒ í™”ë©´ ë§Œ ë³´ì—¬ì£¼ê¸° ìœ„í•´ ë‘ë²ˆì§¸ í˜ì´ì§€ëŠ” ë³´ì´ì§€ ì•Šê²Œ ì„¤ì •í•œë‹¤.
 		thridpage.setVisible(false);
 		endpage.setVisible(false);
 		login.setVisible(false);
 		
-		/*Ã¹¹øÂ° ÆäÀÌÁö */
+		/*ì²«ë²ˆì§¸ í˜ì´ì§€ */
 		
-		// ½ºÅ¸Æ® ¹öÆ°ÀÌ ÀÔ·ÂÀÌ µÇ¸é ´ÙÀ½ È­¸éÀ¸·Î ³Ñ¾î°£´Ù.
+		// ìŠ¤íƒ€íŠ¸ ë²„íŠ¼ì´ ì…ë ¥ì´ ë˜ë©´ ë‹¤ìŒ í™”ë©´ìœ¼ë¡œ ë„˜ì–´ê°„ë‹¤.
 		btnstart.addActionListener(new ActionListener(){
 			
 			@Override
@@ -426,7 +426,7 @@ public class sec {
 			}
 		}   );
 		
-		//·Î±×ÀÎ ¹öÆ°ÀÌ ÀÔ·ÂÀÌ µÇ¸é ·Î±×ÀÎ È­¸éÀ¸·Î ÀÌµ¿ÇÑ´Ù.
+		//ë¡œê·¸ì¸ ë²„íŠ¼ì´ ì…ë ¥ì´ ë˜ë©´ ë¡œê·¸ì¸ í™”ë©´ìœ¼ë¡œ ì´ë™í•œë‹¤.
 		btnlongin.addActionListener(new ActionListener(){
 			
 			@Override
@@ -441,7 +441,7 @@ public class sec {
 			}
 		}   );
 		
-		//È¸¿ø°¡ÀÔ ¹öÆ°ÀÌ ÀÔ·ÂÀÌ µÇ¸é È¸¿ø°¡ÀÔ È­¸éÀ¸·Î ÀÌµ¿ÇÑ´Ù.
+		//íšŒì›ê°€ì… ë²„íŠ¼ì´ ì…ë ¥ì´ ë˜ë©´ íšŒì›ê°€ì… í™”ë©´ìœ¼ë¡œ ì´ë™í•œë‹¤.
 		btnaddcs.addActionListener(new ActionListener(){
 			
 			@Override
@@ -457,16 +457,16 @@ public class sec {
 		}   );
 		
 		
-		// Á¾·á ¹öÆ°À» ´©¸£¸é ÇÁ·Î±×·¥ Á¾·á 
+		// ì¢…ë£Œ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ í”„ë¡œê·¸ë¨ ì¢…ë£Œ 
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			System.exit(0);
 			}
 			});
 
-		/*µÎ¹øÂ° ÆäÀÌÁö*/
+		/*ë‘ë²ˆì§¸ í˜ì´ì§€*/
 		
-		// µÚ·Î°¡±â¸¦ ´©¸£¸é Ã³À½ È­¸éÀ¸·Î ³Ñ¾î°£´Ù.
+		// ë’¤ë¡œê°€ê¸°ë¥¼ ëˆ„ë¥´ë©´ ì²˜ìŒ í™”ë©´ìœ¼ë¡œ ë„˜ì–´ê°„ë‹¤.
 		btnbehind2.addActionListener(new ActionListener(){
 			
 			@Override
@@ -497,7 +497,7 @@ public class sec {
 		
 		
 		
-		/*¼¼¹øÂ° ÆäÀÌÁö*/
+		/*ì„¸ë²ˆì§¸ í˜ì´ì§€*/
 
 	btnbehindpage3.addActionListener(new ActionListener(){
 			
@@ -527,8 +527,8 @@ public class sec {
 	}   );
 		
 		
-		/*³×¹øÂ° ÆäÀÌÁö*/
-	btnlastpage.addActionListener(new ActionListener() {//Ã³À½À¸·Î µ¹¾Æ°£´Ù.
+		/*ë„¤ë²ˆì§¸ í˜ì´ì§€*/
+	btnlastpage.addActionListener(new ActionListener() {//ì²˜ìŒìœ¼ë¡œ ëŒì•„ê°„ë‹¤.
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -542,15 +542,15 @@ public class sec {
 		});
 			
 	
-	btnEnd.addActionListener(new ActionListener() {				// ³ª°¡±â ¹öÆ°
+	btnEnd.addActionListener(new ActionListener() {				// ë‚˜ê°€ê¸° ë²„íŠ¼
 		public void actionPerformed(ActionEvent e) {
 		System.exit(0);
 		}
 		});
 		
 	
-	/* ·Î±×ÀÎ ÆäÀÌÁö */
-	login_behind_btn.addActionListener(new ActionListener() {		//Ã³À½À¸·Î µ¹¾Æ°£´Ù.
+	/* ë¡œê·¸ì¸ í˜ì´ì§€ */
+	login_behind_btn.addActionListener(new ActionListener() {		//ì²˜ìŒìœ¼ë¡œ ëŒì•„ê°„ë‹¤.
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -562,7 +562,7 @@ public class sec {
 			signup.setVisible(false);
 		}
 		});
-	go_signup_btn.addActionListener(new ActionListener() {		//·Î±×ÀÎ ÆäÀÌÁö·Î ÀÌµ¿ÇÑ´Ù.
+	go_signup_btn.addActionListener(new ActionListener() {		//íšŒì›ê°€ì… í˜ì´ì§€ë¡œ ì´ë™í•œë‹¤.
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -574,8 +574,8 @@ public class sec {
 			signup.setVisible(true);
 		}
 		});
-	/* È¸¿ø°¡ÀÔ ÆäÀÌÁö */
-	signup_firstpage_btn.addActionListener(new ActionListener() {		//Ã³À½À¸·Î µ¹¾Æ°£´Ù.
+	/* íšŒì›ê°€ì… í˜ì´ì§€ */
+	signup_firstpage_btn.addActionListener(new ActionListener() {		//ì²˜ìŒìœ¼ë¡œ ëŒì•„ê°„ë‹¤.
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
