@@ -18,6 +18,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
 import javax.swing.JToolBar;
+import java.awt.SystemColor;
 
 public class sec {
 
@@ -66,14 +67,14 @@ public class sec {
 		
 		JButton btnstart = new JButton("\uC2DC\uC791");
 		btnstart.setBackground(Color.GREEN);
-		btnstart.setFont(new Font("HY헤드라인M", Font.PLAIN, 36));
-		btnstart.setBounds(306, 419, 180, 82);
+		btnstart.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
+		btnstart.setBounds(513, 403, 164, 62);
 		startpage.add(btnstart);
 		
 		JButton btnExit = new JButton("\uC885\uB8CC");
 		btnExit.setBackground(Color.RED);
 		btnExit.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
-		btnExit.setBounds(316, 511, 164, 44);
+		btnExit.setBounds(513, 489, 164, 62);
 		startpage.add(btnExit);
 		
 		JLabel lblNewLabel = new JLabel("\uD300\uC7A5 : \uCD5C\uBBFC\uAE30");
@@ -96,6 +97,18 @@ public class sec {
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setBounds(232, 267, 330, 29);
 		startpage.add(lblNewLabel_3);
+		
+		JButton btnaddcs = new JButton("\uD68C\uC6D0\uAC00\uC785");
+		btnaddcs.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
+		btnaddcs.setBackground(SystemColor.activeCaption);
+		btnaddcs.setBounds(171, 489, 164, 62);
+		startpage.add(btnaddcs);
+		
+		JButton btnlongin = new JButton("\uB85C\uADF8\uC778");
+		btnlongin.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
+		btnlongin.setBackground(SystemColor.textHighlight);
+		btnlongin.setBounds(171, 403, 164, 62);
+		startpage.add(btnlongin);
 		
 		JPanel secpage = new JPanel();
 		secpage.setBounds(0, 0, 799, 686);
@@ -261,6 +274,7 @@ public class sec {
 		btnlastpage.setBounds(265, 393, 110, 58);
 		endpage.add(btnlastpage);
 		
+	
 		/* 처음 화면 보이기 설정*/
 		
 		secpage.setVisible(false);     //처음 화면 만 보여주기 위해 두번째 페이지는 보이지 않게 설정한다.
