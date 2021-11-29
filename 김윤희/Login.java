@@ -7,7 +7,6 @@ import java.sql.*;
 import java.io.*;
 public class Login {
     int error = 2; // 기본 에러값으로 2 설정
-
     public Login(String id, String password) throws IOException{
         if(id.equals("")||password.equals("")) // 빈칸이 존재하면 에러값으로 1 설정
             error = 1;

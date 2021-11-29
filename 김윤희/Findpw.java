@@ -5,9 +5,7 @@
 
 import java.sql.*;
 import java.io.*;
-
 public class Findpw {
-
     int error = 2;              // 기본 에러값으로 2 설정
     String uesrpw ;                 // 비밀번호를 담을 string
     public Findpw(String name, String id, String Hint, String Email  ) throws IOException{
@@ -29,18 +27,16 @@ public class Findpw {
 
                     if(rs.next()) {// 이름이 존재하고 아이디가 존재하면
                         rs = stm.executeQuery("select Hint from user_info where Hint = '" + Hint + "';");
-                        if(rs.next()){  // 이름이 존재하고 아이디어가 존재하면
-                            rs = stm.executeQuery("select Email from user_info where Email = '" + Email + "';");
-                            if(rs.next()){
+                        if(rs.next()){  // 이름, 아이디, 힌트가 존재하면
+                            rs = stm.executeQuery("select * from user_info where Email = '" + Email + "';");
+                            if(rs.next()){ // 이름, 아이디, 힌트, 이메일이 존재하면
                                 uesrpw = rs.getString("Password");
                                 error = 0;
                             }
                         }
                     }
                 }
-
                 rs.close();
-
                 stm.close();
                 con.close();
 
@@ -52,6 +48,4 @@ public class Findpw {
                 //'caching_sha2_password' 에러 발생시 참고: https://seoulbliss.tistory.com/88
             }
     }
-
-
 }
