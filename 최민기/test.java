@@ -864,5 +864,33 @@ public class test {
                 findpass.setVisible(false);
             }
         });
+
+        // 비밀번호 찾기 버튼 구현
+        findpass_btn_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Findpw fpw = new Findpw(textField_name.getText(),textField_ID.getText(),textField_Hinit.getText(),textField_Email.getText());
+                    if(fpw.error == 1){ // 입력하지 않은 내용이 있을시
+                        JOptionPane.showMessageDialog(null,"입력하지 않은 내용이 있습니다.");
+                    }
+                    else if(fpw.error == 2){ // 입력한 4개의 정보와 동일한 회원정보를 가진 회원이 없으면
+                        JOptionPane.showMessageDialog(null,"입력한 회원정보는 존재하지 않습니다.");
+                    }
+                    else{ // 제대로 입력시
+                        JOptionPane.showMessageDialog(null,"비밀번호는 " + fpw.uesrpw + " 입니다.");
+                        secpage.setVisible(false);
+                        startpage.setVisible(false);
+                        thridpage.setVisible(false);
+                        endpage.setVisible(false);
+                        login.setVisible(true);
+                        signup.setVisible(false);
+                        findpass.setVisible(false);
+                    }
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 }
