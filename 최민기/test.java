@@ -279,10 +279,6 @@ public class test {
         loginbtn.setBackground(Color.GRAY);
         loginbtn.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 12));
         loginbtn.setForeground(Color.WHITE);
-        loginbtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
         loginbtn.setBounds(257, 327, 266, 35);
         login.add(loginbtn);
 
@@ -741,6 +737,35 @@ public class test {
             }
         });
 
+        loginbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Login log = new Login(loginID.getText(),loginpassward.getText());
+                    if(log.error == 1){ // 입력하지 않은 내용이 있을시
+                        JOptionPane.showMessageDialog(null,"입력하지 않은 내용이 있습니다.");
+                    }
+                    else if(log.error == 2){ // 아이디를 찾을 수 없을시
+                        JOptionPane.showMessageDialog(null,"입력한 아이디가 존재하지 않습니다.");
+                    }
+                    else if(log.error == 3) {// 비밀번호를 찾을 수 없을시
+                        JOptionPane.showMessageDialog(null,"입력한 비밀번호가 존재하지 않습니다.");
+                    }
+                    else{ // 제대로 입력시
+                        JOptionPane.showMessageDialog(null,"로그인 완료");
+                        secpage.setVisible(true);
+                        startpage.setVisible(false);
+                        thridpage.setVisible(false);
+                        endpage.setVisible(false);
+                        login.setVisible(false);
+                        signup.setVisible(false);
+                        findpass.setVisible(false);
+                    }
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
 
         /* 회원가입 페이지 */
         signup_firstpage_btn.addActionListener(new ActionListener() {		//처음으로 돌아간다.
@@ -803,7 +828,10 @@ public class test {
 
                 try { // PutUserInfo 클래스를 이용해 회원 정보를 db에 저장
                     PutUserInfo ui = new PutUserInfo(name.getText(),email.getText(),id.getText(),paswward.getText(),hint.getText(),allergy_code);
-                    if(ui.error == 1) {// 중복된 아이디 입력시
+                    if(ui.error == 1){ // 입력하지 않은 내용이 있을시
+                        JOptionPane.showMessageDialog(null,"입력하지 않은 내용이 있습니다.");
+                    }
+                    else if(ui.error == 2) {// 중복된 아이디 입력시
                         JOptionPane.showMessageDialog(null,"이미 존재하는 아이디입니다.");
                     }
                     else{ // 제대로 입력시

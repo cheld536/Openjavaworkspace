@@ -1,14 +1,14 @@
 /*error code 0: 에러없음
   error code 1: 빈칸이 존재함
-  error code 2: 중복된 아이디 입력*/
+  error code 2: 아이디를 찾을 수 없음
+  error code 3: 비밀번호를 찾을 수 없음*/
 
 import java.sql.*;
 import java.io.*;
-
-public class PutUserInfo {
-    int error = 0;
-    public PutUserInfo(String name, String email, String id, String password, String hint, String allergy_code) throws IOException{
-        if(name.equals("")||email.equals("")||id.equals("")||password.equals("")||hint.equals(""))
+public class Login {
+    int error = 2; // 기본 에러값으로 2 설정
+    public Login(String id, String password) throws IOException{
+        if(id.equals("")||password.equals("")) // 빈칸이 존재하면 에러값으로 1 설정
             error = 1;
         else
             try{
@@ -19,10 +19,17 @@ public class PutUserInfo {
                 String pass = "dkffjwl12?"; // 비밀번호 입력
                 Connection con = DriverManager.getConnection(dburl,user,pass);
                 Statement stm = con.createStatement();
+                ResultSet rs = stm.executeQuery("select ID from user_info where ID = '" + id + "';");
 
-                String update = "insert into user_info values('" + name + "','"  + id + "','" + password + "','" + hint + "','" + allergy_code + "','" + email + "');";
-                System.out.println(update);
-                stm.executeUpdate(update);
+                if(rs.next()){ // 아이디가 존재하면 에러값 3으로 설정
+                    error = 3;
+                    rs = stm.executeQuery("select Password from user_info where Password = '" + password + "';");
+
+                    if(rs.next()) // 아이디가 존재하고 비밀번호가 존재하면 에러값 0으로 설정
+                        error = 0;
+                }
+                rs.close();
+
                 stm.close();
                 con.close();
 
@@ -30,9 +37,7 @@ public class PutUserInfo {
                 System.out.println("드라이브를 찾지 못했습니다.");
             }catch (SQLException e){
                 System.out.println("커넥션 오류");
-                System.out.println("이미 존재하는 아이디입니다.");
                 System.out.println(e.getMessage());
-                error = 2;
                 //'caching_sha2_password' 에러 발생시 참고: https://seoulbliss.tistory.com/88
             }
     }
