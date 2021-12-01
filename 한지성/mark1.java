@@ -1117,13 +1117,14 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent arg0) {// 엔터치면 실행되는 부분
                 comboBox.removeAllItems();//콤보박스에 저장되어있는 목록 삭제
-
-                SearchFood sf= new SearchFood(textField.getText()); // SearchFood 클래스를 이용해 입력한 단어가 포함되어있는 상품명을 SearchFood안의 arraylist에 저장한다.
-                for(int i=0;i< sf.array.size();i++){
-                    comboBox.addItem(sf.array.get(i));
-                } //SearchFood안의 arraylist에 있는 값을 combobox에 저장한다.
-
-
+                if(textField.getText().equals("")){
+                }
+                else {
+                    SearchFood sf = new SearchFood(textField.getText()); // SearchFood 클래스를 이용해 입력한 단어가 포함되어있는 상품명을 SearchFood안의 arraylist에 저장한다.
+                    for (int i = 0; i < sf.array.size(); i++) {
+                        comboBox.addItem(sf.array.get(i));
+                    } //SearchFood안의 arraylist에 있는 값을 combobox에 저장한다.
+                }
             }
         };
         //회원 검색기능(ok1)
@@ -1131,9 +1132,13 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent arg0) {// 엔터치면 실행되는 부분
                 comboBox_1.removeAllItems();
-                SearchFood sf= new SearchFood(textField_1.getText());
-                for(int i=0;i< sf.array.size();i++){
-                    comboBox_1.addItem(sf.array.get(i));
+                if(textField_1.getText().equals("")){
+                }
+                else {
+                    SearchFood sf = new SearchFood(textField_1.getText());
+                    for (int i = 0; i < sf.array.size(); i++) {
+                        comboBox_1.addItem(sf.array.get(i));
+                    }
                 }
             }
         };
