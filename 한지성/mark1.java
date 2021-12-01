@@ -2,6 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class mark1 {
 
@@ -1080,5 +1081,72 @@ public class mark1 {
                 }
             }
         });
+        //검색기능 구현
+        findpass_btn_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Findpw fpw = new Findpw(textField_name.getText(),textField_ID.getText(),textField_Hinit.getText(),textField_Email.getText());
+                    if(fpw.error == 1){ // 입력하지 않은 내용이 있을시
+                        JOptionPane.showMessageDialog(null,"입력하지 않은 내용이 있습니다.");
+                    }
+                    else if(fpw.error == 2){ // 입력한 4개의 정보와 동일한 회원정보를 가진 회원이 없으면
+                        JOptionPane.showMessageDialog(null,"입력한 회원정보는 존재하지 않습니다.");
+                    }
+                    else{ // 제대로 입력시
+                        JOptionPane.showMessageDialog(null,"비밀번호는 " + fpw.uesrpw + " 입니다.");
+                        secpage.setVisible(false);
+                        Msecpage.setVisible(false);
+                        startpage.setVisible(false);
+                        thridpage.setVisible(false);
+                        thirdpage_member.setVisible(false);
+                        endpage.setVisible(false);
+                        login.setVisible(true);
+                        signup.setVisible(false);
+                        findpass.setVisible(false);
+                    }
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
+
+       //비회원 검색기능(ok)
+        Action ok = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {// 엔터치면 실행되는 부분
+                comboBox.removeAllItems();//콤보박스에 저장되어있는 목록 삭제
+
+                SearchFood sf= new SearchFood(textField.getText()); // SearchFood 클래스를 이용해 입력한 단어가 포함되어있는 상품명을 SearchFood안의 arraylist에 저장한다.
+                for(int i=0;i< sf.array.size();i++){
+                    comboBox.addItem(sf.array.get(i));
+                } //SearchFood안의 arraylist에 있는 값을 combobox에 저장한다.
+
+
+            }
+        };
+        //회원 검색기능(ok1)
+        Action ok1 = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {// 엔터치면 실행되는 부분
+                comboBox_1.removeAllItems();
+                SearchFood sf= new SearchFood(textField_1.getText());
+                for(int i=0;i< sf.array.size();i++){
+                    comboBox_1.addItem(sf.array.get(i));
+                }
+            }
+        };
+
+        //텍스트박스에서 엔터키 입력시 이벤트처리를 위한 코드
+        KeyStroke enter = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false);
+        textField.getInputMap(JTable.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(enter, "ENTER");
+        textField.getActionMap().put("ENTER", ok);
+
+        KeyStroke enter1 = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false);
+        textField_1.getInputMap(JTable.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(enter1, "ENTER");
+        textField_1.getActionMap().put("ENTER", ok1);
+
+
     }
 }
