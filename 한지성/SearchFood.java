@@ -8,8 +8,6 @@ public class SearchFood {
 
     public SearchFood(String foodname) {
 
-        Scanner scan = new Scanner(System.in);
-
         String driver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul&useSSL=false";
         String sql = "SELECT Food_name " + "FROM food_info WHERE Food_name LIKE "; //food_info테이블에서 Food_name을 이용하여 Food_name 얻고자함.
