@@ -2,6 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class mark1 {
 
@@ -18,6 +19,7 @@ public class mark1 {
     private JTextField textField_Email;
     private JTextField textField_ID;
     private JTextField textField_Hinit;
+    private JTextField textField_1;
 
     /**
      * Launch the application.
@@ -60,7 +62,7 @@ public class mark1 {
         frame.getContentPane().add(startpage);
         startpage.setLayout(null);
 
-        JButton btnstart = new JButton("\uC2DC\uC791");
+        JButton btnstart = new JButton("\uBC14\uB85C\uC2DC\uC791");
         btnstart.setBounds(502, 403, 164, 62);
         btnstart.setBackground(Color.GREEN);
         btnstart.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
@@ -104,6 +106,48 @@ public class mark1 {
         btnlongin.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
         btnlongin.setBackground(SystemColor.textHighlight);
         startpage.add(btnlongin);
+
+        JPanel Msecpage = new JPanel();
+        Msecpage.setBounds(0, 0, 799, 686);
+        frame.getContentPane().add(Msecpage);
+        Msecpage.setLayout(null);
+
+        textField_1 = new JTextField();
+        textField_1.setBounds(52, 332, 636, 21);
+        textField_1.setColumns(10);
+        Msecpage.add(textField_1);
+
+        JComboBox comboBox_1 = new JComboBox();
+        comboBox_1.setBounds(52, 363, 636, 23);
+        Msecpage.add(comboBox_1);
+
+        JLabel lblNewLabel_4_1 = new JLabel("\u203B \uC790\uC2E0\uC774 \uAC80\uC0C9\uD558\uACE0\uC790 \uD558\uB294 \uC2DD\uD488\uC744 \uAC80\uC0C9\uD574\uC8FC\uC138\uC694.");
+        lblNewLabel_4_1.setBounds(52, 307, 636, 15);
+        Msecpage.add(lblNewLabel_4_1);
+
+        JLabel lblNewLabel_4_1_1 = new JLabel("\uB2D8, \uC548\uB155\uD558\uC138\uC694!");
+        lblNewLabel_4_1_1.setFont(new Font("굴림", Font.PLAIN, 13));
+        lblNewLabel_4_1_1.setBounds(110, 38, 564, 15);
+        Msecpage.add(lblNewLabel_4_1_1);
+
+        JLabel NameLocation = new JLabel("\uD64D\uAE38\uB3D9");
+        NameLocation.setFont(new Font("굴림", Font.PLAIN, 13));
+        NameLocation.setBounds(39, 38, 115, 15);
+        Msecpage.add(NameLocation);
+
+        JLabel lblNewLabel_1_1 = new JLabel("R\uB7ECG");
+        lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNewLabel_1_1.setFont(new Font("굴림", Font.PLAIN, 62));
+        lblNewLabel_1_1.setBounds(236, 97, 274, 137);
+        Msecpage.add(lblNewLabel_1_1);
+
+        JButton btnbehind2_1 = new JButton("behindpage");
+        btnbehind2_1.setBounds(23, 642, 115, 23);
+        Msecpage.add(btnbehind2_1);
+
+        JButton btnnextpage2_1 = new JButton("nextpage");
+        btnnextpage2_1.setBounds(679, 642, 108, 23);
+        Msecpage.add(btnnextpage2_1);
 
 
         JPanel secpage = new JPanel();
@@ -217,6 +261,32 @@ public class mark1 {
         JCheckBox secpage_Checkbox_없음 = new JCheckBox("\uC5C6\uC74C");
         secpage_Checkbox_없음.setBounds(43, 273, 115, 23);
         secpage.add(secpage_Checkbox_없음);
+
+        JPanel thirdpage_member = new JPanel();
+        thirdpage_member.setBounds(0, 0, 799, 686);
+        frame.getContentPane().add(thirdpage_member);
+        thirdpage_member.setLayout(null);
+
+        JButton btnbehindpage3_1 = new JButton("Behind");
+        btnbehindpage3_1.setBounds(12, 639, 97, 23);
+        thirdpage_member.add(btnbehindpage3_1);
+
+        JButton btnnextpage3_1 = new JButton("Next");
+        btnnextpage3_1.setBounds(690, 639, 97, 23);
+        thirdpage_member.add(btnnextpage3_1);
+
+        JTextPane textPane_1 = new JTextPane();
+        textPane_1.setBounds(185, 168, 602, 370);
+        thirdpage_member.add(textPane_1);
+
+        JLabel lblNewLabel_6_1 = new JLabel("\uC0AC\uC9C4 \uB4E4\uC5B4\uAC08\uACF3");
+        lblNewLabel_6_1.setBounds(38, 257, 118, 147);
+        thirdpage_member.add(lblNewLabel_6_1);
+
+        JLabel lblNewLabel_8_2 = new JLabel("\uAC80\uC0C9\uD55C \uC74C\uC2DD\uC758 \uAC80\uC0C9 \uACB0\uACFC\uC785\uB2C8\uB2E4.");
+        lblNewLabel_8_2.setFont(new Font("맑은 고딕", Font.PLAIN, 19));
+        lblNewLabel_8_2.setBounds(38, 119, 336, 23);
+        thirdpage_member.add(lblNewLabel_8_2);
 
         JPanel thridpage = new JPanel();
         thridpage.setBounds(0, 0, 799, 686);
@@ -393,12 +463,6 @@ public class mark1 {
         name.setBounds(332, 317, 191, 27);
         signup.add(name);
 
-        JTextPane possible_signup = new JTextPane();
-        possible_signup.setEnabled(false);
-        possible_signup.setBackground(SystemColor.control);
-        possible_signup.setBounds(257, 413, 266, 21);
-        signup.add(possible_signup);
-
         JCheckBox singup_CheckBox_메밀 = new JCheckBox("\uBA54\uBC00");
         singup_CheckBox_메밀.setBounds(47, 124, 115, 23);
         signup.add(singup_CheckBox_메밀);
@@ -546,7 +610,9 @@ public class mark1 {
         /* 처음 화면 보이기 설정*/
 
         secpage.setVisible(false);     //처음 화면 만 보여주기 위해 두번째 페이지는 보이지 않게 설정한다.
+        Msecpage.setVisible(false);
         thridpage.setVisible(false);
+        thirdpage_member.setVisible(false);
         endpage.setVisible(false);
         login.setVisible(false);
         signup.setVisible(false);
@@ -561,8 +627,10 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e){
                 secpage.setVisible(true);
+                Msecpage.setVisible(false);
                 startpage.setVisible(false);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(false);
                 signup.setVisible(false);
@@ -577,8 +645,10 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e){
                 secpage.setVisible(false);
+                Msecpage.setVisible(false);
                 startpage.setVisible(false);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(true);
                 signup.setVisible(false);
@@ -593,8 +663,10 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e){
                 secpage.setVisible(false);
+                Msecpage.setVisible(false);
                 startpage.setVisible(false);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(false);
                 signup.setVisible(true);
@@ -611,7 +683,7 @@ public class mark1 {
             }
         });
 
-        /*두번째 페이지*/
+        /*두번째 페이지(비회원 검색페이지)*/
 
         // 뒤로가기를 누르면 처음 화면으로 넘어간다.
         btnbehind2.addActionListener(new ActionListener(){
@@ -619,8 +691,10 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e){
                 secpage.setVisible(false);
+                Msecpage.setVisible(false);
                 startpage.setVisible(true);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(false);
                 signup.setVisible(false);
@@ -634,8 +708,10 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e){
                 secpage.setVisible(false);
+                Msecpage.setVisible(false);
                 startpage.setVisible(false);
                 thridpage.setVisible(true);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(false);
                 signup.setVisible(false);
@@ -643,18 +719,52 @@ public class mark1 {
             }
         }   );
 
+        /*회원 검색페이지*/
+        btnbehind2_1.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e){
+                secpage.setVisible(false);
+                Msecpage.setVisible(false);
+                startpage.setVisible(false);
+                thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
+                endpage.setVisible(false);
+                login.setVisible(true);
+                signup.setVisible(false);
+                findpass.setVisible(false);
+            }
+        }   );
 
 
+        btnnextpage2_1.addActionListener(new ActionListener(){
 
-        /*세번째 페이지*/
+            @Override
+            public void actionPerformed(ActionEvent e){
+                secpage.setVisible(false);
+                Msecpage.setVisible(false);
+                startpage.setVisible(false);
+                thridpage.setVisible(false);
+                thirdpage_member.setVisible(true);
+                endpage.setVisible(false);
+                login.setVisible(false);
+                signup.setVisible(false);
+                findpass.setVisible(false);
+            }
+        }   );
+
+        /*세번째 페이지(비회원)*/
 
         btnbehindpage3.addActionListener(new ActionListener(){
+
 
             @Override
             public void actionPerformed(ActionEvent e){
                 secpage.setVisible(true);
+                Msecpage.setVisible(false);
                 startpage.setVisible(false);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(false);
                 signup.setVisible(false);
@@ -668,9 +778,28 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e){
                 secpage.setVisible(false);
+                Msecpage.setVisible(false);
                 startpage.setVisible(false);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(true);
+                login.setVisible(false);
+                signup.setVisible(false);
+                findpass.setVisible(false);
+            }
+        }   );
+        /*세번째 페이지(회원)*/
+        btnbehindpage3_1.addActionListener(new ActionListener(){
+
+
+            @Override
+            public void actionPerformed(ActionEvent e){
+                secpage.setVisible(false);
+                Msecpage.setVisible(true);
+                startpage.setVisible(false);
+                thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
+                endpage.setVisible(false);
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
@@ -678,14 +807,32 @@ public class mark1 {
         }   );
 
 
+        btnnextpage3_1.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e){
+                secpage.setVisible(false);
+                Msecpage.setVisible(false);
+                startpage.setVisible(false);
+                thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
+                endpage.setVisible(true);
+                login.setVisible(false);
+                signup.setVisible(false);
+                findpass.setVisible(false);
+            }
+        }   );
+
         /*네번째 페이지*/
         btnlastpage.addActionListener(new ActionListener() {//처음으로 돌아간다.
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 secpage.setVisible(false);
+                Msecpage.setVisible(false);
                 startpage.setVisible(true);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(false);
                 signup.setVisible(false);
@@ -707,8 +854,10 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 secpage.setVisible(false);
+                Msecpage.setVisible(false);
                 startpage.setVisible(true);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(false);
                 signup.setVisible(false);
@@ -720,8 +869,10 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 secpage.setVisible(false);
+                Msecpage.setVisible(false);
                 startpage.setVisible(false);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(false);
                 signup.setVisible(true);
@@ -733,8 +884,10 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 secpage.setVisible(false);
+                Msecpage.setVisible(false);
                 startpage.setVisible(false);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(false);
                 signup.setVisible(false);
@@ -758,9 +911,16 @@ public class mark1 {
                     }
                     else{ // 제대로 입력시
                         JOptionPane.showMessageDialog(null,"로그인 완료");
-                        secpage.setVisible(true);
+                        NameLocation.setText(log.name); // 로그인 후 페이지에 회원 이름 출력
+                        // 로그인 하면서 적은 내용 제거
+                        loginID.setText("");
+                        loginpassward.setText("");
+                        // 로그인 후 페이지로 전환
+                        secpage.setVisible(false);
+                        Msecpage.setVisible(true);
                         startpage.setVisible(false);
                         thridpage.setVisible(false);
+                        thirdpage_member.setVisible(false);
                         endpage.setVisible(false);
                         login.setVisible(false);
                         signup.setVisible(false);
@@ -778,8 +938,10 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 secpage.setVisible(false);
+                Msecpage.setVisible(false);
                 startpage.setVisible(true);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(false);
                 signup.setVisible(false);
@@ -862,9 +1024,37 @@ public class mark1 {
                     }
                     else{ // 제대로 입력시
                         JOptionPane.showMessageDialog(null,"회원가입이 완료되었습니다.");
+                        // 입력된 정보 제거
+                        name.setText("");
+                        email.setText("");
+                        id.setText("");
+                        paswward.setText("");
+                        hint.setText("");
+                        singup_CheckBox_메밀.setSelected(false);
+                        singup_CheckBox_밀.setSelected(false);
+                        singup_CheckBox_대두.setSelected(false);
+                        singup_CheckBox_호두.setSelected(false);
+                        singup_CheckBox_땅콩.setSelected(false);
+                        singup_CheckBox_복숭아.setSelected(false);
+                        singup_CheckBox_고등어.setSelected(false);
+                        singup_CheckBox_토마토.setSelected(false);
+                        singup_CheckBox_돼지고기.setSelected(false);
+                        singup_CheckBox_소고기.setSelected(false);
+                        singup_CheckBox_닭고기.setSelected(false);
+                        singup_CheckBox_난류.setSelected(false);
+                        singup_CheckBox_조개류.setSelected(false);
+                        singup_CheckBox_우유.setSelected(false);
+                        singup_CheckBox_새우.setSelected(false);
+                        singup_CheckBox_게.setSelected(false);
+                        singup_CheckBox_오징어.setSelected(false);
+                        singup_CheckBox_아황산.setSelected(false);
+                        singup_CheckBox_없음.setSelected(false);
+                        // 처음 화면으로 전환
                         secpage.setVisible(false);
+                        Msecpage.setVisible(false);
                         startpage.setVisible(true);
                         thridpage.setVisible(false);
+                        thirdpage_member.setVisible(false);
                         endpage.setVisible(false);
                         login.setVisible(false);
                         signup.setVisible(false);
@@ -882,8 +1072,10 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 secpage.setVisible(false);
+                Msecpage.setVisible(false);
                 startpage.setVisible(false);
                 thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
                 endpage.setVisible(false);
                 login.setVisible(true);
                 signup.setVisible(false);
@@ -905,9 +1097,17 @@ public class mark1 {
                     }
                     else{ // 제대로 입력시
                         JOptionPane.showMessageDialog(null,"비밀번호는 " + fpw.uesrpw + " 입니다.");
+                        // 입력된 정보 제거
+                        textField_name.setText("");
+                        textField_ID.setText("");
+                        textField_Hinit.setText("");
+                        textField_Email.setText("");
+                        // 로그인 페이지로 이동
                         secpage.setVisible(false);
+                        Msecpage.setVisible(false);
                         startpage.setVisible(false);
                         thridpage.setVisible(false);
+                        thirdpage_member.setVisible(false);
                         endpage.setVisible(false);
                         login.setVisible(true);
                         signup.setVisible(false);
@@ -918,5 +1118,49 @@ public class mark1 {
                 }
             }
         });
+
+        //검색기능 구현
+       //비회원 검색기능(ok)
+        Action ok = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {// 엔터치면 실행되는 부분
+                comboBox.removeAllItems();//콤보박스에 저장되어있는 목록 삭제
+                if(textField.getText().equals("")){
+                }
+                else {
+                    SearchFood sf = new SearchFood(textField.getText()); // SearchFood 클래스를 이용해 입력한 단어가 포함되어있는 상품명을 SearchFood안의 arraylist에 저장한다.
+                    for (int i = 0; i < sf.array.size(); i++) {
+                        comboBox.addItem(sf.array.get(i));
+                    } //SearchFood안의 arraylist에 있는 값을 combobox에 저장한다.
+                }
+            }
+        };
+
+        //회원 검색기능(ok1)
+        Action ok1 = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {// 엔터치면 실행되는 부분
+                comboBox_1.removeAllItems();
+                if(textField_1.getText().equals("")){
+                }
+                else {
+                    SearchFood sf = new SearchFood(textField_1.getText());
+                    for (int i = 0; i < sf.array.size(); i++) {
+                        comboBox_1.addItem(sf.array.get(i));
+                    }
+                }
+            }
+        };
+
+        //텍스트박스에서 엔터키 입력시 이벤트처리를 위한 코드
+        KeyStroke enter = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false);
+        textField.getInputMap(JTable.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(enter, "ENTER");
+        textField.getActionMap().put("ENTER", ok);
+
+        KeyStroke enter1 = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false);
+        textField_1.getInputMap(JTable.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(enter1, "ENTER");
+        textField_1.getActionMap().put("ENTER", ok1);
+
+
     }
 }
