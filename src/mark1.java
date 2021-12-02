@@ -20,6 +20,13 @@ public class mark1 {
     private JTextField textField_ID;
     private JTextField textField_Hinit;
     private JTextField textField_1;
+    public String searchfoodname ="";
+    public String searchfoodname_1 ="";
+    public String foodname="";
+    public String foodname_1="";
+    public int checkenter =0;
+    public int checkenter_1 =0;
+
 
     /**
      * Launch the application.
@@ -706,16 +713,27 @@ public class mark1 {
         btnnextpage2.addActionListener(new ActionListener(){
 
             @Override
-            public void actionPerformed(ActionEvent e){
-                secpage.setVisible(false);
-                Msecpage.setVisible(false);
-                startpage.setVisible(false);
-                thridpage.setVisible(true);
-                thirdpage_member.setVisible(false);
-                endpage.setVisible(false);
-                login.setVisible(false);
-                signup.setVisible(false);
-                findpass.setVisible(false);
+            public void actionPerformed(ActionEvent e) {
+                if (foodname.equals("")&&checkenter==1) { //없는 단어를 입력하였을경우
+                    JOptionPane.showMessageDialog(null, textField.getText() + " 은(는) 존재하지 않습니다.\n다시 검색해 주세요.");
+                }
+                else if (checkenter==0){ // enter를 누르지 않고 다음페이지를 넘어가려고 할 경우
+                    JOptionPane.showMessageDialog(null, "Enter 후 검색어를 선택해주세요.");
+                }
+                else {
+
+                    secpage.setVisible(false);
+                    Msecpage.setVisible(false);
+                    startpage.setVisible(false);
+                    thridpage.setVisible(true);
+                    thirdpage_member.setVisible(false);
+                    endpage.setVisible(false);
+                    login.setVisible(false);
+                    signup.setVisible(false);
+                    findpass.setVisible(false);
+
+                }
+                checkenter=0;
             }
         }   );
 
@@ -740,16 +758,27 @@ public class mark1 {
         btnnextpage2_1.addActionListener(new ActionListener(){
 
             @Override
-            public void actionPerformed(ActionEvent e){
-                secpage.setVisible(false);
-                Msecpage.setVisible(false);
-                startpage.setVisible(false);
-                thridpage.setVisible(false);
-                thirdpage_member.setVisible(true);
-                endpage.setVisible(false);
-                login.setVisible(false);
-                signup.setVisible(false);
-                findpass.setVisible(false);
+            public void actionPerformed(ActionEvent e) {
+                if (foodname_1.equals("")&&checkenter_1==1) {
+                    JOptionPane.showMessageDialog(null, textField_1.getText() + " 은(는) 존재하지 않습니다.\n다시 검색해 주세요.");
+                }
+                else if (checkenter_1==0){
+                    JOptionPane.showMessageDialog(null, "Enter 후 검색어를 선택해주세요.");
+                }else
+                {
+
+                    secpage.setVisible(false);
+                    Msecpage.setVisible(false);
+                    startpage.setVisible(false);
+                    thridpage.setVisible(false);
+                    thirdpage_member.setVisible(true);
+                    endpage.setVisible(false);
+                    login.setVisible(false);
+                    signup.setVisible(false);
+                    findpass.setVisible(false);
+
+                }
+                checkenter_1=0;
             }
         }   );
 
@@ -769,7 +798,10 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
+                checkenter=1;
+                textField.setText(searchfoodname);
             }
+
         }   );
 
 
@@ -803,6 +835,8 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
+                checkenter_1=1;
+                textField_1.setText(searchfoodname_1);
             }
         }   );
 
@@ -1120,11 +1154,16 @@ public class mark1 {
         });
 
         //검색기능 구현
-       //비회원 검색기능(ok)
+        //비회원 검색기능
         Action ok = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent arg0) {// 엔터치면 실행되는 부분
+                checkenter=1;
+                searchfoodname =textField.getText();
+
                 comboBox.removeAllItems();//콤보박스에 저장되어있는 목록 삭제
+                foodname ="";
+
                 if(textField.getText().equals("")){
                 }
                 else {
@@ -1135,12 +1174,14 @@ public class mark1 {
                 }
             }
         };
-
         //회원 검색기능(ok1)
         Action ok1 = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent arg0) {// 엔터치면 실행되는 부분
+                checkenter_1=1;
+                searchfoodname_1 =textField_1.getText();
                 comboBox_1.removeAllItems();
+                foodname_1 ="";
                 if(textField_1.getText().equals("")){
                 }
                 else {
@@ -1161,6 +1202,30 @@ public class mark1 {
         textField_1.getInputMap(JTable.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(enter1, "ENTER");
         textField_1.getActionMap().put("ENTER", ok1);
 
+        //콤보박스에서 선택된 상품명 foodname에 저장.
+        comboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource().equals(comboBox)) {
+                    JComboBox cb = (JComboBox) e.getSource();
+                    foodname = (String) cb.getSelectedItem();
+                } else {
+                    foodname = comboBox.getSelectedItem().toString();
+                }
+            }
+        });
+        comboBox_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource().equals(comboBox_1)) {
+                    JComboBox cb_1 = (JComboBox) e.getSource();
+                    foodname_1 = (String) cb_1.getSelectedItem();
+                } else {
+                    foodname_1 = comboBox_1.getSelectedItem().toString();
+                }
+            }
+        });
 
     }
 }
