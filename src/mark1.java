@@ -911,6 +911,11 @@ public class mark1 {
                     }
                     else{ // 제대로 입력시
                         JOptionPane.showMessageDialog(null,"로그인 완료");
+                        NameLocation.setText(log.name); // 로그인 후 페이지에 회원 이름 출력
+                        // 로그인 하면서 적은 내용 제거
+                        loginID.setText("");
+                        loginpassward.setText("");
+                        // 로그인 후 페이지로 전환
                         secpage.setVisible(false);
                         Msecpage.setVisible(true);
                         startpage.setVisible(false);
@@ -1019,6 +1024,32 @@ public class mark1 {
                     }
                     else{ // 제대로 입력시
                         JOptionPane.showMessageDialog(null,"회원가입이 완료되었습니다.");
+                        // 입력된 정보 제거
+                        name.setText("");
+                        email.setText("");
+                        id.setText("");
+                        paswward.setText("");
+                        hint.setText("");
+                        singup_CheckBox_메밀.setSelected(false);
+                        singup_CheckBox_밀.setSelected(false);
+                        singup_CheckBox_대두.setSelected(false);
+                        singup_CheckBox_호두.setSelected(false);
+                        singup_CheckBox_땅콩.setSelected(false);
+                        singup_CheckBox_복숭아.setSelected(false);
+                        singup_CheckBox_고등어.setSelected(false);
+                        singup_CheckBox_토마토.setSelected(false);
+                        singup_CheckBox_돼지고기.setSelected(false);
+                        singup_CheckBox_소고기.setSelected(false);
+                        singup_CheckBox_닭고기.setSelected(false);
+                        singup_CheckBox_난류.setSelected(false);
+                        singup_CheckBox_조개류.setSelected(false);
+                        singup_CheckBox_우유.setSelected(false);
+                        singup_CheckBox_새우.setSelected(false);
+                        singup_CheckBox_게.setSelected(false);
+                        singup_CheckBox_오징어.setSelected(false);
+                        singup_CheckBox_아황산.setSelected(false);
+                        singup_CheckBox_없음.setSelected(false);
+                        // 처음 화면으로 전환
                         secpage.setVisible(false);
                         Msecpage.setVisible(false);
                         startpage.setVisible(true);
@@ -1066,6 +1097,12 @@ public class mark1 {
                     }
                     else{ // 제대로 입력시
                         JOptionPane.showMessageDialog(null,"비밀번호는 " + fpw.uesrpw + " 입니다.");
+                        // 입력된 정보 제거
+                        textField_name.setText("");
+                        textField_ID.setText("");
+                        textField_Hinit.setText("");
+                        textField_Email.setText("");
+                        // 로그인 페이지로 이동
                         secpage.setVisible(false);
                         Msecpage.setVisible(false);
                         startpage.setVisible(false);
@@ -1083,36 +1120,6 @@ public class mark1 {
         });
 
         //검색기능 구현
-        findpass_btn_1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    Findpw fpw = new Findpw(textField_name.getText(),textField_ID.getText(),textField_Hinit.getText(),textField_Email.getText());
-                    if(fpw.error == 1){ // 입력하지 않은 내용이 있을시
-                        JOptionPane.showMessageDialog(null,"입력하지 않은 내용이 있습니다.");
-                    }
-                    else if(fpw.error == 2){ // 입력한 4개의 정보와 동일한 회원정보를 가진 회원이 없으면
-                        JOptionPane.showMessageDialog(null,"입력한 회원정보는 존재하지 않습니다.");
-                    }
-                    else{ // 제대로 입력시
-                        JOptionPane.showMessageDialog(null,"비밀번호는 " + fpw.uesrpw + " 입니다.");
-                        secpage.setVisible(false);
-                        Msecpage.setVisible(false);
-                        startpage.setVisible(false);
-                        thridpage.setVisible(false);
-                        thirdpage_member.setVisible(false);
-                        endpage.setVisible(false);
-                        login.setVisible(true);
-                        signup.setVisible(false);
-                        findpass.setVisible(false);
-                    }
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        });
-
-
        //비회원 검색기능(ok)
         Action ok = new AbstractAction() {
             @Override
