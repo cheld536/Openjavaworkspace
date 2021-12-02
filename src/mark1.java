@@ -2,7 +2,10 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.awt.Graphics;
+import java.awt.Image;
+
+
 
 public class mark1 {
 
@@ -27,6 +30,9 @@ public class mark1 {
     public int checkenter =0;
     public int checkenter_1 =0;
 
+    /**/
+    ImageIcon startig = new ImageIcon("image/food.jpg");
+    Image startimg = startig.getImage();
 
     /**
      * Launch the application.
@@ -50,6 +56,20 @@ public class mark1 {
     public mark1() {
         initialize();
     }
+/*
+*  image 추가하기 위한 Imagepanel 생성
+* */
+
+    class ImagePanel extends JPanel{
+        @Override
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+            g.drawImage(startimg, 0, 0, null);
+        }
+
+
+    }
+
 
     /**
      * Initialize the contents of the frame.
@@ -62,12 +82,14 @@ public class mark1 {
         frame.getContentPane().setLayout(null);						// 레이아웃 설정
         frame.setLocationRelativeTo(null);							//화면 정중앙에 출력
 
+        // 이미지
+        ImagePanel startpage = new ImagePanel();
 
-        JPanel startpage = new JPanel();
-        startpage.setBackground(Color.WHITE);
+       //startpage.setBackground(Color.WHITE);
         startpage.setBounds(0, 0, 799, 686);
         frame.getContentPane().add(startpage);
         startpage.setLayout(null);
+
 
         JButton btnstart = new JButton("\uBC14\uB85C\uC2DC\uC791");
         btnstart.setBounds(502, 403, 164, 62);
@@ -627,6 +649,7 @@ public class mark1 {
 
 
         /*첫번째 페이지 */
+
 
         // 스타트 버튼이 입력이 되면 다음 화면으로 넘어간다.
         btnstart.addActionListener(new ActionListener(){
@@ -1229,3 +1252,4 @@ public class mark1 {
 
     }
 }
+
