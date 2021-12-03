@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.awt.Graphics;
 import java.awt.Image;
 
-
-
 public class mark1 {
 
     private JFrame frame;
@@ -34,9 +32,10 @@ public class mark1 {
     ImageIcon startig = new ImageIcon("image/food.jpg");
     Image startimg = startig.getImage();
 
-    /*나머지 이미지*/
-    //ImageIcon useicon =null;                                 // 이미지 넣을때 new ImageIcon("사진주소");
-    //Image useimg = useicon.getImage();
+    /*나머지 이미지
+    ImageIcon useicon =null;                                 // 이미지 넣을때 new ImageIcon("사진주소");
+    Image useimg = useicon.getImage();
+    */
 
     /**
      * Launch the application.
@@ -73,22 +72,20 @@ public class mark1 {
 
 
     }
-/*
-*
-*  jlabel에 사진을 업로드
-*
-* */
+    /*
+     *
+     *  jlabel에 사진을 업로드
+     *
+     * */
 /*
     class Imagejlabel extends JLabel{
         @Override
         public void paintComponent(Graphics g){
             super.paintComponent(g);
-            g.drawImage(useimg, 0, 0, null);
+            g.drawImage(useimg, 38, 200, null);
         }
-
-
-    }*/
-
+    }
+*/
 
     /**
      * Initialize the contents of the frame.
@@ -106,6 +103,7 @@ public class mark1 {
         startpage.setBounds(0, 0, 799, 686);
         frame.getContentPane().add(startpage);
         startpage.setLayout(null);
+
 
 
         RoundedButton btnstart = new RoundedButton("\uBC14\uB85C\uC2DC\uC791");
@@ -341,12 +339,8 @@ public class mark1 {
         thirdpage_member.add(btnnextpage3_1);
 
         JTextPane textPane_1 = new JTextPane();
-        textPane_1.setBounds(185, 168, 602, 370);
+        textPane_1.setBounds(306, 168, 481, 370);
         thirdpage_member.add(textPane_1);
-
-        JLabel lblNewLabel_6_1 = new JLabel("\uC0AC\uC9C4 \uB4E4\uC5B4\uAC08\uACF3");
-        lblNewLabel_6_1.setBounds(38, 257, 118, 147);
-        thirdpage_member.add(lblNewLabel_6_1);
 
         JLabel lblNewLabel_8_2 = new JLabel("\uAC80\uC0C9\uD55C \uC74C\uC2DD\uC758 \uAC80\uC0C9 \uACB0\uACFC\uC785\uB2C8\uB2E4.");
         lblNewLabel_8_2.setFont(new Font("맑은 고딕", Font.PLAIN, 19));
@@ -367,12 +361,8 @@ public class mark1 {
         thridpage.add(btnnextpage3);
 
         JTextPane textPane = new JTextPane();
-        textPane.setBounds(185, 168, 602, 370);
+        textPane.setBounds(306, 168, 481, 370);
         thridpage.add(textPane);
-
-        JLabel lblNewLabel_6 = new JLabel("\uC0AC\uC9C4 \uB4E4\uC5B4\uAC08\uACF3");
-        lblNewLabel_6.setBounds(38, 257, 118, 147);
-        thridpage.add(lblNewLabel_6);
 
         JLabel lblNewLabel_8 = new JLabel("\uAC80\uC0C9\uD55C \uC74C\uC2DD\uC758 \uAC80\uC0C9 \uACB0\uACFC\uC785\uB2C8\uB2E4.");
         lblNewLabel_8.setFont(new Font("맑은 고딕", Font.PLAIN, 19));
@@ -821,7 +811,7 @@ public class mark1 {
         findid.setBounds(257, 335, 63, 21);
         findpass.add(findid);
 
-        JLabel findhinit = new JLabel("Hint");
+        JLabel findhinit = new JLabel("Hinit");
         findhinit.setFont(new Font("Dialog", Font.PLAIN, 12));
         findhinit.setBounds(257, 372, 63, 21);
         findpass.add(findhinit);
@@ -947,7 +937,6 @@ public class mark1 {
             }
         });
 
-
         // 알러지? 버튼이 입력되면 설명 페이지로 이동한다.
         explanationbtn.addActionListener(new ActionListener(){
 
@@ -1069,14 +1058,6 @@ public class mark1 {
             }
         }   );
 
-
-
-
-
-
-
-
-
         /*두번째 페이지(비회원 검색페이지)*/
 
         // 뒤로가기를 누르면 처음 화면으로 넘어간다.
@@ -1111,6 +1092,10 @@ public class mark1 {
                     JOptionPane.showMessageDialog(null, "Enter 후 검색어를 선택해주세요.");
                 }
                 else {
+                    GetInfo getInfo_1 = new GetInfo(foodname);
+                    JLabel imagelabel = new JLabel(new ImageIcon(getInfo_1.resizeImage));
+                    imagelabel.setBounds(38,200,250,166);
+                    thridpage.add(imagelabel);
 
                     secpage.setVisible(false);
                     Msecpage.setVisible(false);
@@ -1162,6 +1147,10 @@ public class mark1 {
                     JOptionPane.showMessageDialog(null, "Enter 후 검색어를 선택해주세요.");
                 }else
                 {
+                    GetInfo getInfo_1 = new GetInfo(foodname_1);
+                    JLabel imagelabel_1 = new JLabel(new ImageIcon(getInfo_1.resizeImage));
+                    imagelabel_1.setBounds(38,200,250,166);
+                    thirdpage_member.add(imagelabel_1);
 
                     secpage.setVisible(false);
                     Msecpage.setVisible(false);
