@@ -108,13 +108,13 @@ public class mark1 {
         startpage.setLayout(null);
 
 
-        JButton btnstart = new JButton("\uBC14\uB85C\uC2DC\uC791");
+        RoundedButton btnstart = new RoundedButton("\uBC14\uB85C\uC2DC\uC791");
         btnstart.setBounds(502, 380, 164, 62);
         btnstart.setBackground(Color.GREEN);
         btnstart.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
         startpage.add(btnstart);
 
-        JButton btnExit = new JButton("\uC885\uB8CC");
+        RoundedButton btnExit = new RoundedButton("\uC885\uB8CC");
         btnExit.setBounds(502, 524, 164, 62);
         btnExit.setBackground(Color.RED);
         btnExit.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
@@ -141,13 +141,13 @@ public class mark1 {
         lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
         startpage.add(lblNewLabel_3);
 
-        JButton btnaddcs = new JButton("\uD68C\uC6D0\uAC00\uC785");
+        RoundedButton btnaddcs = new RoundedButton("\uD68C\uC6D0\uAC00\uC785");
         btnaddcs.setBounds(171, 452, 164, 62);
         btnaddcs.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
         btnaddcs.setBackground(SystemColor.activeCaption);
         startpage.add(btnaddcs);
 
-        JButton btnlongin = new JButton("\uB85C\uADF8\uC778");
+        RoundedButton btnlongin = new RoundedButton("\uB85C\uADF8\uC778");
         btnlongin.setBounds(171, 380, 164, 62);
         btnlongin.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
         btnlongin.setBackground(SystemColor.textHighlight);
@@ -160,13 +160,13 @@ public class mark1 {
         txtpnallergy.setBounds(171, 255, 464, 73);
         startpage.add(txtpnallergy);
 
-        JButton explanationbtn = new JButton("\uC54C\uB7EC\uC9C0?");
+        RoundedButton explanationbtn = new RoundedButton("\uC54C\uB7EC\uC9C0?");
         explanationbtn.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
         explanationbtn.setBackground(Color.CYAN);
         explanationbtn.setBounds(171, 524, 164, 62);
         startpage.add(explanationbtn);
 
-        JButton manualbtn = new JButton("\uBA54\uB274\uC5BC");
+        RoundedButton manualbtn = new RoundedButton("\uBA54\uB274\uC5BC");
         manualbtn.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
         manualbtn.setBackground(Color.YELLOW);
         manualbtn.setBounds(502, 452, 164, 62);
@@ -391,7 +391,7 @@ public class mark1 {
         lblNewLabel_7.setBounds(152, 182, 474, 174);
         endpage.add(lblNewLabel_7);
 
-        JButton btnEnd = new JButton("Exit");
+        RoundedButton btnEnd = new RoundedButton("Exit");
         btnEnd.setBackground(Color.RED);
         btnEnd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -400,7 +400,7 @@ public class mark1 {
         btnEnd.setBounds(412, 393, 110, 58);
         endpage.add(btnEnd);
 
-        JButton btnlastpage = new JButton("\uB418\uB3CC\uC544\uAC00\uAE30");
+        RoundedButton btnlastpage = new RoundedButton("\uB418\uB3CC\uC544\uAC00\uAE30");
         btnlastpage.setBackground(Color.GREEN);
         btnlastpage.setBounds(265, 393, 110, 58);
         endpage.add(btnlastpage);
@@ -752,12 +752,12 @@ public class mark1 {
         explanation5.setBounds(10, 518, 744, 46);
         explanpage.add(explanation5);
 
-        JButton explanbackbtn_0 = new JButton("Behind Page");
+        RoundedButton explanbackbtn_0 = new RoundedButton("Behind Page");
         explanbackbtn_0.setBackground(Color.GREEN);
         explanbackbtn_0.setBounds(12, 608, 110, 58);
         explanpage.add(explanbackbtn_0);
 
-        JButton explannextbtn = new JButton("Next Page");
+        RoundedButton explannextbtn = new RoundedButton("Next Page");
         explannextbtn.setBackground(Color.GREEN);
         explannextbtn.setBounds(659, 608, 110, 58);
         explanpage.add(explannextbtn);
@@ -787,7 +787,7 @@ public class mark1 {
         explanation1_1.setBounds(10, 37, 744, 168);
         explanpage1.add(explanation1_1);
 
-        JButton explanbackbtn_1 = new JButton("Behind Page");
+        RoundedButton explanbackbtn_1 = new RoundedButton("Behind Page");
         explanbackbtn_1.setBackground(Color.GREEN);
         explanbackbtn_1.setBounds(12, 608, 110, 58);
         explanpage1.add(explanbackbtn_1);
@@ -821,7 +821,7 @@ public class mark1 {
         findid.setBounds(257, 335, 63, 21);
         findpass.add(findid);
 
-        JLabel findhinit = new JLabel("Hinit");
+        JLabel findhinit = new JLabel("Hint");
         findhinit.setFont(new Font("Dialog", Font.PLAIN, 12));
         findhinit.setBounds(257, 372, 63, 21);
         findpass.add(findhinit);
