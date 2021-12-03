@@ -104,23 +104,27 @@ public class mark1 {
         startpage.add(btnExit);
 
         JLabel lblNewLabel = new JLabel("\uD300\uC7A5 : \uCD5C\uBBFC\uAE30");
-        lblNewLabel.setBounds(57, 622, 192, 44);
+        lblNewLabel.setFont(new Font("굴림", Font.BOLD, 18));
+        lblNewLabel.setBounds(28, 622, 192, 44);
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         startpage.add(lblNewLabel);
 
         JLabel lblNewLabel_1 = new JLabel("R\uB7ECG");
-        lblNewLabel_1.setBounds(256, 131, 274, 137);
-        lblNewLabel_1.setFont(new Font("굴림", Font.PLAIN, 62));
+        lblNewLabel_1.setForeground(Color.WHITE);
+        lblNewLabel_1.setBounds(253, 134, 274, 137);
+        lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 69));
         lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
         startpage.add(lblNewLabel_1);
 
-        JLabel lblNewLabel_2 = new JLabel("\uC870\uC6D0 :     \uAE40\uC724\uD76C                     \uC8FC\uC2DC\uC6D0                        \uD55C\uC9C0\uC131 ");
-        lblNewLabel_2.setBounds(291, 630, 375, 29);
+        JLabel lblNewLabel_2 = new JLabel("\uC870\uC6D0 :     \uAE40\uC724\uD76C                   \uC8FC\uC2DC\uC6D0                    \uD55C\uC9C0\uC131 ");
+        lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 18));
+        lblNewLabel_2.setBounds(232, 630, 523, 29);
         startpage.add(lblNewLabel_2);
 
         JLabel lblNewLabel_3 = new JLabel("- \uC2DD\uD488 \uC54C\uB808\uB974\uAE30 \uD655\uC778 \uD504\uB85C\uADF8\uB7A8  -");
-        lblNewLabel_3.setBounds(232, 269, 342, 29);
-        lblNewLabel_3.setFont(new Font("HY견고딕", Font.PLAIN, 19));
+        lblNewLabel_3.setForeground(Color.DARK_GRAY);
+        lblNewLabel_3.setBounds(228, 268, 330, 29);
+        lblNewLabel_3.setFont(new Font("Dialog", Font.BOLD, 19));
         lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
         startpage.add(lblNewLabel_3);
 
