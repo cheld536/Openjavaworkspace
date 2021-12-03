@@ -2,7 +2,10 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.awt.Graphics;
+import java.awt.Image;
+
+
 
 public class mark1 {
 
@@ -20,6 +23,16 @@ public class mark1 {
     private JTextField textField_ID;
     private JTextField textField_Hinit;
     private JTextField textField_1;
+    public String searchfoodname ="";
+    public String searchfoodname_1 ="";
+    public String foodname="";
+    public String foodname_1="";
+    public int checkenter =0;
+    public int checkenter_1 =0;
+
+    /**/
+    ImageIcon startig = new ImageIcon("image/food.jpg");
+    Image startimg = startig.getImage();
 
     /**
      * Launch the application.
@@ -43,6 +56,20 @@ public class mark1 {
     public mark1() {
         initialize();
     }
+    /*
+     *  image 추가하기 위한 Imagepanel 생성
+     * */
+
+    class ImagePanel extends JPanel{
+        @Override
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+            g.drawImage(startimg, 0, 0, null);
+        }
+
+
+    }
+
 
     /**
      * Initialize the contents of the frame.
@@ -55,21 +82,23 @@ public class mark1 {
         frame.getContentPane().setLayout(null);						// 레이아웃 설정
         frame.setLocationRelativeTo(null);							//화면 정중앙에 출력
 
+        // 이미지
+        ImagePanel startpage = new ImagePanel();
 
-        JPanel startpage = new JPanel();
-        startpage.setBackground(Color.WHITE);
-        startpage.setBounds(0, 0, 799, 699);
+        //startpage.setBackground(Color.WHITE);
+        startpage.setBounds(0, 0, 799, 686);
         frame.getContentPane().add(startpage);
         startpage.setLayout(null);
 
+
         JButton btnstart = new JButton("\uBC14\uB85C\uC2DC\uC791");
-        btnstart.setBounds(502, 380, 164, 62);
+        btnstart.setBounds(502, 403, 164, 62);
         btnstart.setBackground(Color.GREEN);
         btnstart.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
         startpage.add(btnstart);
 
         JButton btnExit = new JButton("\uC885\uB8CC");
-        btnExit.setBounds(502, 524, 164, 62);
+        btnExit.setBounds(502, 489, 164, 62);
         btnExit.setBackground(Color.RED);
         btnExit.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
         startpage.add(btnExit);
@@ -80,7 +109,7 @@ public class mark1 {
         startpage.add(lblNewLabel);
 
         JLabel lblNewLabel_1 = new JLabel("R\uB7ECG");
-        lblNewLabel_1.setBounds(246, 41, 274, 137);
+        lblNewLabel_1.setBounds(256, 131, 274, 137);
         lblNewLabel_1.setFont(new Font("굴림", Font.PLAIN, 62));
         lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
         startpage.add(lblNewLabel_1);
@@ -90,41 +119,22 @@ public class mark1 {
         startpage.add(lblNewLabel_2);
 
         JLabel lblNewLabel_3 = new JLabel("- \uC2DD\uD488 \uC54C\uB808\uB974\uAE30 \uD655\uC778 \uD504\uB85C\uADF8\uB7A8  -");
-        lblNewLabel_3.setBounds(215, 188, 342, 29);
+        lblNewLabel_3.setBounds(232, 269, 342, 29);
         lblNewLabel_3.setFont(new Font("HY견고딕", Font.PLAIN, 19));
         lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
         startpage.add(lblNewLabel_3);
 
         JButton btnaddcs = new JButton("\uD68C\uC6D0\uAC00\uC785");
-        btnaddcs.setBounds(171, 452, 164, 62);
+        btnaddcs.setBounds(171, 489, 164, 62);
         btnaddcs.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
         btnaddcs.setBackground(SystemColor.activeCaption);
         startpage.add(btnaddcs);
 
         JButton btnlongin = new JButton("\uB85C\uADF8\uC778");
-        btnlongin.setBounds(171, 380, 164, 62);
+        btnlongin.setBounds(171, 403, 164, 62);
         btnlongin.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
         btnlongin.setBackground(SystemColor.textHighlight);
         startpage.add(btnlongin);
-
-        JTextPane txtpnallergy = new JTextPane();
-        txtpnallergy.setFont(new Font("HY헤드라인M", Font.PLAIN, 12));
-        txtpnallergy.setText("\uC54C\uB808\uB974\uAE30\uB294 \uC644\uC804\uD788 \uCE58\uB8CC\uD560\uC218 \uC788\uB294 \uBC29\uBC95\uC774 \uC5C6\uAE30 \uB54C\uBB38\uC5D0 \uC54C\uB808\uB974\uAE30 \uBC18\uC751\uC744 \uC77C\uC73C\uD0A4\uB294 \r\n\uC74C\uC2DD\uC744 \uD68C\uD53C\uD558\uB294 \uAC83\uC774 \uC88B\uB2E4.\r\n\uC54C\uB7EC\uC9C0 \uD310\uBCC4 \uD504\uB85C\uADF8\uB7A8\uC740 \uC0AC\uC6A9\uC790\uAC00 \uD68C\uD53C \uD574\uC57C\uD558\uB294 \uC74C\uC2DD\uC744 \uC27D\uAC8C \uCC3E\uC744 \uC218 \uC788\uAC8C \uD574\uC900\uB2E4.");
-        txtpnallergy.setEditable(false);
-        txtpnallergy.setBounds(171, 255, 464, 73);
-        startpage.add(txtpnallergy);
-
-        JButton explanationbtn = new JButton("\uC54C\uB7EC\uC9C0?");
-        explanationbtn.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
-        explanationbtn.setBackground(Color.CYAN);
-        explanationbtn.setBounds(171, 524, 164, 62);
-        startpage.add(explanationbtn);
-
-        JButton manualbtn = new JButton("\uBA54\uB274\uC5BC");
-        manualbtn.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
-        manualbtn.setBackground(Color.YELLOW);
-        manualbtn.setBounds(502, 452, 164, 62);
-        startpage.add(manualbtn);
 
         JPanel Msecpage = new JPanel();
         Msecpage.setBounds(0, 0, 799, 686);
@@ -624,192 +634,7 @@ public class mark1 {
         findpass_behind_btn.setBounds(24, 634, 97, 23);
         findpass.add(findpass_behind_btn);
 
-// 메뉴얼 페이지
-        JPanel manualpage = new JPanel();
-        manualpage.setBackground(Color.white);
-        manualpage.setBounds(0, 0, 799, 699);
-        frame.getContentPane().add(manualpage);
-        manualpage.setLayout(null);
 
-        JTextPane manualtext = new JTextPane();
-        manualtext.setBounds(12, 128, 775, 340);
-        manualtext.setText("1. \uCC98\uC74C \uD654\uBA74\uC5D0\uC11C \uD68C\uC6D0\uAC00\uC785 \uB610\uB294 \uBE44\uD68C\uC6D0 \uBC84\uD2BC\uC744 \uD074\uB9AD\uD55C\uB2E4.\r\n\r\n1-1. \uD68C\uC6D0\uAC00\uC785\uC744 \uC120\uD0DD\uD558\uC600\uB2E4\uBA74 \uBCF8\uC778\uC774 \uD574\uB2F9\uD558\uB294 \uC54C\uB808\uB974\uAE30\uB97C \uCCB4\uD06C\uD574\uC8FC\uBA70 \uD68C\uC6D0\uC815\uBCF4\uB97C \uAE30\uC785\uD55C\uB2E4.\r\n\r\n1-2. \uB9CC\uC57D \uBC14\uB85C\uC2DC\uC791(\uBE44\uD68C\uC6D0)\uC744 \uC120\uD0DD\uD558\uC600\uB2E4\uBA74 \uC790\uC2E0\uC774 \uD574\uB2F9\uD558\uB294 \uC54C\uB808\uB974\uAE30\uB97C \uCCB4\uD06C\uD55C\uB2E4.\r\n\r\n2. \uC790\uC2E0\uC774 \uAC80\uC0C9\uD558\uACE0\uC790 \uD558\uB294 \uC2DD\uD488\uC744 \uC785\uB825\uD55C \uD6C4 \uB2E4\uC74C\uD398\uC774\uC9C0\uB85C \uB118\uC5B4\uAC04\uB2E4.\r\n\r\n3. \uAC80\uC0C9\uD55C \uC2DD\uD488\uC758 \uC2DD\uD488\uC601\uC591\uC18C, \uCCA8\uAC00\uBB3C, \uB2F9\uC2E0\uC774 \uD3EC\uD568\uB418\uB294 \uC54C\uB808\uB974\uAE30 \uC815\uBCF4\uB97C \uC81C\uACF5\uD574\uC900\uB2E4.\r\n\r\n4. \uB9CC\uC57D \uC2DD\uD488\uACFC \uBCF8\uC778\uC758 \uC54C\uB808\uB974\uAE30\uAC00 \uC77C\uCE58\uD55C\uB2E4\uBA74 \uB300\uCCB4\uD560 \uC218 \uC788\uB294 \uC2DD\uD488\uC744 \uC54C\uB824\uC900\uB2E4.\r\n");
-        manualtext.setFont(new Font("HY궁서B", Font.PLAIN, 20));
-        manualtext.setEditable(false);
-        manualtext.setBackground(Color.PINK);
-        manualpage.add(manualtext);
-
-        JButton manubehindbtn = new JButton("Behind page");
-        manubehindbtn.setBounds(41, 613, 165, 38);
-        manualpage.add(manubehindbtn);
-
-        JTextPane textPane_2 = new JTextPane();
-        textPane_2.setBounds(350, 69, 152, 63);
-        textPane_2.setFont(new Font("HY헤드라인M", Font.PLAIN, 25));
-        textPane_2.setEditable(false);
-        textPane_2.setBackground(Color.white);
-        textPane_2.setText("\uBA54\uB274\uC5BC");
-        manualpage.add(textPane_2);
-        // 설명 페이지
-        JPanel explanpage = new JPanel();
-        explanpage.setBackground(Color.WHITE);
-        explanpage.setBounds(0, 0, 799, 699);
-        frame.getContentPane().add(explanpage);
-        explanpage.setLayout(null);
-
-        JTextPane explanpinkimage1 = new JTextPane();
-        explanpinkimage1.setEditable(false);
-        explanpinkimage1.setBackground(Color.PINK);
-        explanpinkimage1.setBounds(0, 0, 13, 27);
-        explanpage.add(explanpinkimage1);
-
-        JTextPane explanpinkimage2 = new JTextPane();
-        explanpinkimage2.setEditable(false);
-        explanpinkimage2.setBackground(Color.PINK);
-        explanpinkimage2.setBounds(0, 95, 13, 27);
-        explanpage.add(explanpinkimage2);
-
-        JTextPane explantitle1 = new JTextPane();
-        explantitle1.setEditable(false);
-        explantitle1.setText("\uC54C\uB808\uB974\uAE30 \uB780?");
-        explantitle1.setBounds(25, 0, 144, 27);
-        explanpage.add(explantitle1);
-
-        JTextPane explanation1 = new JTextPane();
-        explanation1.setEditable(false);
-        explanation1.setFont(new Font("HY헤드라인M", Font.PLAIN, 14));
-        explanation1.setText("\uC54C\uB808\uB974\uAE30 \uB610\uB294 \uC54C\uB7EC\uC9C0(allergy)\uB294 \uBA74\uC5ED \uC2DC\uC2A4\uD15C\uC758 \uC624\uC791\uB3D9\uC73C\uB85C \uBCF4\uD1B5 \uC0AC\uB78C\uC5D0\uAC8C\uB294 \uBCC4 \uC601\uD5A5\uC774 \uC5C6\uB294 \uBB3C\uC9C8\uC774 \uC5B4\uB5A4 \uC0AC\uB78C\uC5D0\uAC8C\uB9CC \uB450\uB4DC\uB7EC\uAE30, \uAC00\uB824\uC6C0, \uCF67\uBB3C, \uAE30\uCE68\uB4F1 \uC774\uC0C1 \uACFC\uBBFC \uBC18\uC751\uC744 \uC77C\uC73C\uD0A4\uB294 \uAC83\uC744 \uB9D0\uD569\uB2C8\uB2E4.\r\n");
-        explanation1.setBounds(10, 37, 744, 57);
-        explanpage.add(explanation1);
-
-        JTextPane explantitle2 = new JTextPane();
-        explantitle2.setEditable(false);
-        explantitle2.setText("\uB204\uAC00 \uC54C\uB808\uB974\uAE30\uC5D0 \uAC78\uB9AC\uB098?");
-        explantitle2.setBounds(20, 95, 144, 27);
-        explanpage.add(explantitle2);
-
-        JTextPane explanation2 = new JTextPane();
-        explanation2.setEditable(false);
-        explanation2.setText("\uC54C\uB808\uB974\uAE30 \uC720\uBC1C\uC6D0\uC778\uC73C\uB85C\uB294 \uC720\uC804\uC744 \uADF8 \uC73C\uB738\uC73C\uB85C \uAF3D\uC2B5\uB2C8\uB2E4.  \uC65C\uB0D0\uD558\uBA74 \uC54C\uB808\uB974\uAE30 \uB54C\uBB38\uC5D0\uACE0\uC0DD\uD558\uB294 \uD658\uC790\uB4E4\uC758 \uD608\uC561\uC744 \uBF51\uC544\uC11C \uC720\uC804\uC790\uB97C \uC870\uC0AC\uD574 \uBCF4\uB2C8 \uC11C\uB85C \uB3D9\uC77C\uD55C \uC720\uC804\uC790 \uC704\uCE58\uC5D0 \uB3D9\uC77C\uD55C \uC720\uC804\uC790\uB97C \uC9C0\uB2C8\uACE0 \uC788\uB2E4\uB294 \uAC83\uC785\uB2C8\uB2E4. \uB9CC\uC57D \uC591 \uBD80\uBAA8\uC911 \uC5B4\uB290 \uD55C\uCABD\uC774 \uC54C\uB808\uB974\uAE30 \uC9C8\uD658\uC744 \uC9C0\uB2C8\uACE0 \uC788\uB2E4\uBA74 \uADF8 \uC790\uB140 3\uBA85\uC911 \uD55C\uBA85\uC740 \uC54C\uB808\uB974\uAE30\uB97C \uC9C0\uB2D0 \uAC00\uB2A5\uC131\uC774 \uB9E4\uC6B0 \uB192\uACE0, \uC720\uC804\uC801 \uC694\uC778 \uC678\uC5D0 \uAC70\uB860\uB418\uB294 \uC6D0\uC778\uC73C\uB85C\uB294 \uC5B4\uB5A4 \uD638\uB974\uBAAC\uC758 \uC601\uD5A5, \uBC14\uC774\uB7EC\uC2A4 \uAC10\uC5FC, \uD761\uC5F0 \uB4F1\uB3C4 \uC54C\uB808\uB974\uAE30\uB97C \uC720\uBC1C\uC2DC\uD0AC \uC218 \uC788\uB2E4\uACE0 \uB9D0\uD569\uB2C8\uB2E4.");
-        explanation2.setFont(new Font("HY헤드라인M", Font.PLAIN, 14));
-        explanation2.setBounds(10, 126, 744, 91);
-        explanpage.add(explanation2);
-
-        JTextPane explanpinkimage3 = new JTextPane();
-        explanpinkimage3.setEditable(false);
-        explanpinkimage3.setBackground(Color.PINK);
-        explanpinkimage3.setBounds(0, 222, 13, 27);
-        explanpage.add(explanpinkimage3);
-
-        JTextPane explanation3 = new JTextPane();
-        explanation3.setEditable(false);
-        explanation3.setText("\uC54C\uB808\uB974\uAE30 \uC9C8\uD658\uC740 \uD754\uD558\uC9C0\uB9CC \uC2E4\uC81C\uC801\uC73C\uB85C \uADF8 \uC9C4\uB2E8\uBC95\uC740 \uAC04\uB2E8\uD558\uC9C0\uAC00 \uC54A\uC2B5\uB2C8\uB2E4. \uADF8\uB7FC\uC5D0\uB3C4 \uBD88\uAD6C\uD558\uACE0 \uC54C\uB808\uB974\uAE30 \uC9C8\uD658\uC744 \uC9C4\uB2E8\uD558\uB294 \uB370\uB294 \uBA87 \uAC00\uC9C0 \uBC29\uBC95\uC774 \uC788\uC2B5\uB2C8\uB2E4. \uADF8 \uC911 \uC81C\uC77C \uC911\uC694\uD55C \uAC83\uC740 \uD658\uC790\uC758 \uBCD1\uB825\uACFC \uAC00\uC871\uB825\uC785\uB2C8\uB2E4. \r\n\uB2E4\uC74C\uC73C\uB85C\uB294 \uC5EC\uB7EC \uAC00\uC9C0 \uC54C\uB808\uB974\uAE30 \uAC80\uC0AC\uBC29\uBC95\uC774 \uC788\uB294\uB370 \uD06C\uAC8C \uC54C\uB808\uB974\uAE30 \uD53C\uBD80\uBC18\uC751\uAC80\uC0AC\uC640 \uD608\uC561\uAC80\uC0AC, \uC54C\uB808\uB974\uAE30 \uC720\uBC1C\uAC80\uC0AC \uB4F1\uC73C\uB85C \uB098\uB215\uB2C8\uB2E4. \uB9C8\uC9C0\uB9C9\uC73C\uB85C \uC758\uC2EC\uB418\uB294 \uC54C\uB808\uB974\uAE30 \uC6D0\uC778\uC744 \uC0AC\uB78C\uC758 \uCF54\uB098 \uB208, \uAE30\uAD00\uC9C0\uB0B4\uC5D0 \uC9C1\uC811 \uC791\uC6A9\uC2DC\uCF1C \uBCF4\uAC70\uB098 \uC758\uC2EC\uB418\uB294 \uC2DD\uD488\uC744 \uBA39\uC5EC\uBCF4\uC544 \uC54C\uB808\uB974\uAE30 \uBC18\uC751\uC774 \uC77C\uC5B4\uB098\uB294\uC9C0 \uC5EC\uBD80\uB97C \uBCF4\uB294 \uBC29\uBC95\uC778\uB370 \uC774\uB294 \uC2E4\uC2DC\uD558\uB294 \uC758\uC0AC\uB098 \uD658\uC790 \uBAA8\uB450\uC5D0\uAC8C \uBD80\uB2F4\uC774 \uB418\uB294 \uAC80\uC0AC\uC774\uBBC0\uB85C \uC81C\uD55C\uC801\uC73C\uB85C \uC2E4\uC2DC\uB418\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC774\uB97C \uC720\uBC1C\uAC80\uC0AC\uB77C \uD569\uB2C8\uB2E4.");
-        explanation3.setFont(new Font("HY헤드라인M", Font.PLAIN, 14));
-        explanation3.setBounds(10, 257, 744, 117);
-        explanpage.add(explanation3);
-
-        JTextPane explantitle3 = new JTextPane();
-        explantitle3.setEditable(false);
-        explantitle3.setText("\uC54C\uB808\uB974\uAE30 \uC9C4\uB2E8 \uBC29\uBC95");
-        explantitle3.setBounds(25, 222, 144, 27);
-        explanpage.add(explantitle3);
-
-        JTextPane explanpinkimage4 = new JTextPane();
-        explanpinkimage4.setEditable(false);
-        explanpinkimage4.setBackground(Color.PINK);
-        explanpinkimage4.setBounds(0, 392, 13, 27);
-        explanpage.add(explanpinkimage4);
-
-        JTextPane explantitle4 = new JTextPane();
-        explantitle4.setEditable(false);
-        explantitle4.setText("\uC54C\uB808\uB974\uAE30 \uC9C8\uD658\uC758 \uC885\uB958");
-        explantitle4.setBounds(25, 392, 144, 27);
-        explanpage.add(explantitle4);
-
-        JTextPane explanation4 = new JTextPane();
-        explanation4.setEditable(false);
-        explanation4.setText("\uC54C\uB808\uB974\uAE30 \uBC18\uC751\uC740 \uC778\uCCB4\uC758 \uC5B4\uB290 \uBD80\uC704\uC5D0\uC11C\uB098 \uC77C\uC5B4\uB0A0 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uC6B0\uB9AC\uAC00 \uD754\uD788 \uC811\uD560 \uC218 \uC788\uB294 \uC9C8\uD658\uC73C\uB85C\uB294 \uC54C\uB808\uB974\uAE30\uC131 \uACB0\uB9C9\uC5FC, \uBE44\uC5FC, \uAE30\uAD00\uC9C0\uCC9C\uC2DD, \uC54C\uB808\uB974\uAE30\uC131 \uC811\uCD09\uC131\uD53C\uBD80\uC5FC, \uD0DC\uC5F4(\uC544\uD1A0\uD53C\uC131\uD53C\uBD80\uC5FC), \uB450\uB4DC\uB7EC\uAE30 \uB4F1\uC774 \uC788\uC2B5\uB2C8\uB2E4. ");
-        explanation4.setFont(new Font("HY헤드라인M", Font.PLAIN, 14));
-        explanation4.setBounds(10, 425, 744, 46);
-        explanpage.add(explanation4);
-
-        JTextPane explanpinkimage5 = new JTextPane();
-        explanpinkimage5.setEditable(false);
-        explanpinkimage5.setBackground(Color.PINK);
-        explanpinkimage5.setBounds(0, 481, 13, 27);
-        explanpage.add(explanpinkimage5);
-
-        JTextPane explantitle5 = new JTextPane();
-        explantitle5.setEditable(false);
-        explantitle5.setText("\uC54C\uB808\uB974\uAE30\uC758 \uC885\uB958");
-        explantitle5.setBounds(25, 481, 144, 27);
-        explanpage.add(explantitle5);
-
-        JTextPane explanation5 = new JTextPane();
-        explanation5.setEditable(false);
-        explanation5.setText("\uC54C\uB808\uB974\uAE30 \uC885\uB958\uC5D0\uB294 \uC2DD\uD488 \uC54C\uB808\uB974\uAE30, \uB300\uAE30 \uC54C\uB808\uB974\uAE30, \uD654\uBD84 \uC54C\uB808\uB974\uAE30, \uACF0\uD321\uC774 \uC54C\uB808\uB974\uAE30,\uBA3C\uC9C0 \uC54C\uB808\uB974\uAE30, \uB3D9\uBB3C \uC54C\uB808\uB974\uAE30 \uB4F1\uC774 \uC788\uC2B5\uB2C8\uB2E4.");
-        explanation5.setFont(new Font("HY헤드라인M", Font.PLAIN, 14));
-        explanation5.setBounds(10, 518, 744, 46);
-        explanpage.add(explanation5);
-
-        JButton explanbackbtn_0 = new JButton("Behind Page");
-        explanbackbtn_0.setBackground(Color.GREEN);
-        explanbackbtn_0.setBounds(12, 608, 110, 58);
-        explanpage.add(explanbackbtn_0);
-
-        JButton explannextbtn = new JButton("Next Page");
-        explannextbtn.setBackground(Color.GREEN);
-        explannextbtn.setBounds(659, 608, 110, 58);
-        explanpage.add(explannextbtn);
-        // 설명페이지 2
-        JPanel explanpage1 = new JPanel();
-        explanpage1.setLayout(null);
-        explanpage1.setBackground(Color.WHITE);
-        explanpage1.setBounds(0, 0, 799, 699);
-        frame.getContentPane().add(explanpage1);
-
-        JTextPane explanpinkimage1_1 = new JTextPane();
-        explanpinkimage1_1.setEditable(false);
-        explanpinkimage1_1.setBackground(Color.PINK);
-        explanpinkimage1_1.setBounds(0, 0, 13, 27);
-        explanpage1.add(explanpinkimage1_1);
-
-        JTextPane explantitle1_1 = new JTextPane();
-        explantitle1_1.setEditable(false);
-        explantitle1_1.setText("\uC2DD\uD488 \uC54C\uB808\uB974\uAE30\uC758 \uC99D\uC0C1");
-        explantitle1_1.setBounds(25, 0, 144, 27);
-        explanpage1.add(explantitle1_1);
-
-        JTextPane explanation1_1 = new JTextPane();
-        explanation1_1.setEditable(false);
-        explanation1_1.setText("\uC2DD\uD488\uC54C\uB808\uB974\uAE30 \uC99D\uC0C1\uC740 \uB9E4\uC6B0 \uB2E4\uC591\uD569\uB2C8\uB2E4.\r\n\uC774\uB294 \uC74C\uC2DD\uBB3C\uC5D0 \uB300\uD55C \uC54C\uB808\uB974\uAE30 \uD604\uC0C1\uC5D0 \uC758\uD574 \uC190\uC0C1\uB418\uB294 \uC870\uC9C1 \uBD80\uC704\uC5D0 \uB530\uB77C \uB2E4\uB978 \uC99D\uC0C1\uC744 \uAC00\uC838\uC624\uAE30 \uB54C\uBB38\uC785\uB2C8\uB2E4. \uC74C\uC2DD\uC5D0 \uB300\uD55C \uC54C\uB808\uB974\uAE30 \uC99D\uC0C1\uC744 \uC77C\uC73C\uD0A4\uB294 \uCD5C\uCD08\uC758 \uC2E0\uCCB4\uBD80\uC704\uB294 \uC704\uC7A5\uAD00 \uC73C\uB85C \uC544\uB54C \uB098\uD0C0\uB0A0 \uC218 \uC788\uB294 \uC99D\uC0C1\uC740 \uAD6C\uD1A0, \uBCF5\uD1B5, \uC124\uC0AC \uB4F1\uC774 \uB300\uD45C\uC801\uC774\uBA70 \uD53C\uBD80\uC5D0 \uB098\uD0C0\uB098\uBA74 \uB450\uB4DC\uB7EC\uAE30, \uBD80\uC885 \uC744 \uC77C\uC73C\uD0A4\uACE0 \uCF54\uC5D0 \uB098\uD0C0\uB09C\uB2E4\uBA74 \uC7AC\uCC44\uAE30, \uCF67\uBB3C \uB4F1\uC774 \uBCF4\uC774\uBA70 \uAE30\uAD00\uC9C0\uC5D0 \uB098\uD0C0\uB098\uBA74 \uCC9C\uBA85 \uD639\uC740 \uD638\uD761\uACE4\uB780\uC744 \uAC00\uC838\uC635\uB2C8\uB2E4.\r\n\uADF8\uB7EC\uB098 \uAC00\uC7A5 \uC2EC\uD55C \uC2DD\uD488 \uC54C\uB808\uB974\uAE30 \uBC18\uC751\uC740 \uD604\uC7AC COVID-19 \uBC31\uC2E0 \uBD80\uC791\uC6A9\uC73C\uB85C \uC54C\uB824\uC838 \uC788\uB294 \uC544\uB098\uD544\uB77D\uC2DC\uC2A4\uB77C \uBD88\uB9AC\uB294 \uBC18\uC751\uC785\uB2C8\uB2E4. \uC774\uAC83\uC740 \uD658\uC790\uAC00 \uC54C\uB808\uB974\uAE30 \uBC18\uC751\uC744 \uC9C0\uB2C8\uAC00 \uC788\uB294 \uC74C\uC2DD\uC744 \uC12D\uCDE8 \uD6C4 \uBA87 \uBD84\uB0B4\uC5D0 \uC989\uAC01\uC801\uC73C\uB85C \uC804\uC2E0\uC801, \uCE58\uBA85\uC801\uC778 \uC800\uD608\uC555\uC744 \uAC00\uC838\uC640 \uC1FC\uD06C \uC0C1\uD0DC\uC5D0 \uBE60\uC9C0\uB294 \uD604\uC0C1\uC744 \uB9D0\uD569\uB2C8\uB2E4. \r\n");
-        explanation1_1.setFont(new Font("HY헤드라인M", Font.PLAIN, 14));
-        explanation1_1.setBounds(10, 37, 744, 168);
-        explanpage1.add(explanation1_1);
-
-        JButton explanbackbtn_1 = new JButton("Behind Page");
-        explanbackbtn_1.setBackground(Color.GREEN);
-        explanbackbtn_1.setBounds(12, 608, 110, 58);
-        explanpage1.add(explanbackbtn_1);
-
-        JTextPane explanpinkimage1_2 = new JTextPane();
-        explanpinkimage1_2.setEditable(false);
-        explanpinkimage1_2.setBackground(Color.PINK);
-        explanpinkimage1_2.setBounds(0, 222, 13, 27);
-        explanpage1.add(explanpinkimage1_2);
-
-        JTextPane explantitle1_2 = new JTextPane();
-        explantitle1_2.setEditable(false);
-        explantitle1_2.setText("\uC54C\uB808\uB974\uAE30 \uCE58\uB8CC");
-        explantitle1_2.setBounds(25, 222, 144, 27);
-        explanpage1.add(explantitle1_2);
-
-        JTextPane explanation1_2 = new JTextPane();
-        explanation1_2.setEditable(false);
-        explanation1_2.setText("\uC54C\uB808\uB974\uAE30 \uC9C8\uD658\uC758 \uCE58\uB8CC\uC5D0\uB294 3\uB300\uC6D0\uCE59\uC778 \uD68C\uD53C\uC694\uBC95, \uC57D\uBB3C\uCE58\uB8CC, \uBA74\uC5ED\uCE58\uB8CC \uBC29\uBC95\uC774 \uC788\uC2B5\uB2C8\uB2E4. \uD558\uC9C0\uB9CC \uC544\uC9C1\uAE4C\uC9C0 \uC54C\uB808\uB974\uAE30\uC758 \uC644\uCE58\uB97C \uC774\uB8E8\uB294 \uC808\uB300\uC801\uC778 \uCE58\uB8CC\uBC29\uBC95\uC774 \uC5C6\uAE30\uB54C\uBB38\uC5D0 \uD68C\uD53C\uC694\uBC95\uC744 \uAD8C\uC7A5\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4.\r\n\r\n");
-        explanation1_2.setFont(new Font("HY헤드라인M", Font.PLAIN, 14));
-        explanation1_2.setBounds(10, 259, 744, 74);
-        explanpage1.add(explanation1_2);
 
         /* 처음 화면 보이기 설정*/
 
@@ -821,12 +646,10 @@ public class mark1 {
         login.setVisible(false);
         signup.setVisible(false);
         findpass.setVisible(false);
-        manualpage.setVisible(false);
-        explanpage.setVisible(false);
-        explanpage1.setVisible(false);
 
 
         /*첫번째 페이지 */
+
 
         // 스타트 버튼이 입력이 되면 다음 화면으로 넘어간다.
         btnstart.addActionListener(new ActionListener(){
@@ -842,9 +665,6 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
 
             }
         }   );
@@ -863,9 +683,6 @@ public class mark1 {
                 login.setVisible(true);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
 
             }
         }   );
@@ -884,132 +701,9 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(true);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
 
             }
         }   );
-        // 알러지? 버튼이 입력되면 설명 페이지로 이동한다.
-        explanationbtn.addActionListener(new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent e){
-                secpage.setVisible(false);
-                Msecpage.setVisible(false);
-                startpage.setVisible(false);
-                thridpage.setVisible(false);
-                thirdpage_member.setVisible(false);
-                endpage.setVisible(false);
-                login.setVisible(false);
-                signup.setVisible(false);
-                findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(true);
-                explanpage1.setVisible(false);
-
-            }
-        }   );
-        // 뒤로가기를 누르면 처음 화면으로 넘어간다.
-        explanbackbtn_0.addActionListener(new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent e){
-                secpage.setVisible(false);
-                Msecpage.setVisible(false);
-                startpage.setVisible(true);
-                thridpage.setVisible(false);
-                thirdpage_member.setVisible(false);
-                endpage.setVisible(false);
-                login.setVisible(false);
-                signup.setVisible(false);
-                findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
-            }
-        }   );
-        // 다음 버튼을 누르면 설명두번째 페이지로 넘어간다.
-        explannextbtn.addActionListener(new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent e){
-                secpage.setVisible(false);
-                Msecpage.setVisible(false);
-                startpage.setVisible(false);
-                thridpage.setVisible(false);
-                thirdpage_member.setVisible(false);
-                endpage.setVisible(false);
-                login.setVisible(false);
-                signup.setVisible(false);
-                findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(true);
-            }
-        }   );
-        // 뒤로가기를 누르면 설명 첫페이지로 이동한다.
-        explanbackbtn_1.addActionListener(new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent e){
-                secpage.setVisible(false);
-                Msecpage.setVisible(false);
-                startpage.setVisible(false);
-                thridpage.setVisible(false);
-                thirdpage_member.setVisible(false);
-                endpage.setVisible(false);
-                login.setVisible(false);
-                signup.setVisible(false);
-                findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(true);
-                explanpage1.setVisible(false);
-            }
-        }   );
-        // 메뉴얼 버튼을 누르면 메뉴얼 페이지로 이동한다.
-        manualbtn.addActionListener(new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent e){
-                secpage.setVisible(false);
-                Msecpage.setVisible(false);
-                startpage.setVisible(false);
-                thridpage.setVisible(false);
-                thirdpage_member.setVisible(false);
-                endpage.setVisible(false);
-                login.setVisible(false);
-                signup.setVisible(false);
-                findpass.setVisible(false);
-                manualpage.setVisible(true);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
-
-            }
-        }   );
-        //뒤로가기 버튼을 누르면 시작페이지로 돌아간다.
-        manubehindbtn.addActionListener(new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent e){
-                secpage.setVisible(false);
-                Msecpage.setVisible(false);
-                startpage.setVisible(true);
-                thridpage.setVisible(false);
-                thirdpage_member.setVisible(false);
-                endpage.setVisible(false);
-                login.setVisible(false);
-                signup.setVisible(false);
-                findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
-
-            }
-        }   );
-
-
-
 
 
         // 종료 버튼을 누르면 프로그램 종료
@@ -1035,9 +729,6 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
             }
         }   );
 
@@ -1045,19 +736,27 @@ public class mark1 {
         btnnextpage2.addActionListener(new ActionListener(){
 
             @Override
-            public void actionPerformed(ActionEvent e){
-                secpage.setVisible(false);
-                Msecpage.setVisible(false);
-                startpage.setVisible(false);
-                thridpage.setVisible(true);
-                thirdpage_member.setVisible(false);
-                endpage.setVisible(false);
-                login.setVisible(false);
-                signup.setVisible(false);
-                findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
+            public void actionPerformed(ActionEvent e) {
+                if (foodname.equals("")&&checkenter==1) { //없는 단어를 입력하였을경우
+                    JOptionPane.showMessageDialog(null, textField.getText() + " 은(는) 존재하지 않습니다.\n다시 검색해 주세요.");
+                }
+                else if (checkenter==0){ // enter를 누르지 않고 다음페이지를 넘어가려고 할 경우
+                    JOptionPane.showMessageDialog(null, "Enter 후 검색어를 선택해주세요.");
+                }
+                else {
+
+                    secpage.setVisible(false);
+                    Msecpage.setVisible(false);
+                    startpage.setVisible(false);
+                    thridpage.setVisible(true);
+                    thirdpage_member.setVisible(false);
+                    endpage.setVisible(false);
+                    login.setVisible(false);
+                    signup.setVisible(false);
+                    findpass.setVisible(false);
+
+                }
+                checkenter=0;
             }
         }   );
 
@@ -1075,9 +774,6 @@ public class mark1 {
                 login.setVisible(true);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
             }
         }   );
 
@@ -1085,19 +781,27 @@ public class mark1 {
         btnnextpage2_1.addActionListener(new ActionListener(){
 
             @Override
-            public void actionPerformed(ActionEvent e){
-                secpage.setVisible(false);
-                Msecpage.setVisible(false);
-                startpage.setVisible(false);
-                thridpage.setVisible(false);
-                thirdpage_member.setVisible(true);
-                endpage.setVisible(false);
-                login.setVisible(false);
-                signup.setVisible(false);
-                findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
+            public void actionPerformed(ActionEvent e) {
+                if (foodname_1.equals("")&&checkenter_1==1) {
+                    JOptionPane.showMessageDialog(null, textField_1.getText() + " 은(는) 존재하지 않습니다.\n다시 검색해 주세요.");
+                }
+                else if (checkenter_1==0){
+                    JOptionPane.showMessageDialog(null, "Enter 후 검색어를 선택해주세요.");
+                }else
+                {
+
+                    secpage.setVisible(false);
+                    Msecpage.setVisible(false);
+                    startpage.setVisible(false);
+                    thridpage.setVisible(false);
+                    thirdpage_member.setVisible(true);
+                    endpage.setVisible(false);
+                    login.setVisible(false);
+                    signup.setVisible(false);
+                    findpass.setVisible(false);
+
+                }
+                checkenter_1=0;
             }
         }   );
 
@@ -1117,10 +821,10 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
+                checkenter=1;
+                textField.setText(searchfoodname);
             }
+
         }   );
 
 
@@ -1137,9 +841,6 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
             }
         }   );
         /*세번째 페이지(회원)*/
@@ -1157,9 +858,8 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
+                checkenter_1=1;
+                textField_1.setText(searchfoodname_1);
             }
         }   );
 
@@ -1177,9 +877,6 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
             }
         }   );
 
@@ -1197,9 +894,6 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
             }
         });
 
@@ -1225,9 +919,6 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
             }
         });
         go_signup_btn.addActionListener(new ActionListener() {		//회원가입 페이지로 이동한다.
@@ -1243,9 +934,6 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(true);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
             }
         });
 
@@ -1261,9 +949,6 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(true);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
             }
         });
 
@@ -1283,6 +968,11 @@ public class mark1 {
                     }
                     else{ // 제대로 입력시
                         JOptionPane.showMessageDialog(null,"로그인 완료");
+                        NameLocation.setText(log.name); // 로그인 후 페이지에 회원 이름 출력
+                        // 로그인 하면서 적은 내용 제거
+                        loginID.setText("");
+                        loginpassward.setText("");
+                        // 로그인 후 페이지로 전환
                         secpage.setVisible(false);
                         Msecpage.setVisible(true);
                         startpage.setVisible(false);
@@ -1292,9 +982,6 @@ public class mark1 {
                         login.setVisible(false);
                         signup.setVisible(false);
                         findpass.setVisible(false);
-                        manualpage.setVisible(false);
-                        explanpage.setVisible(false);
-                        explanpage1.setVisible(false);
                     }
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -1316,9 +1003,6 @@ public class mark1 {
                 login.setVisible(false);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
             }
         });
 
@@ -1397,6 +1081,32 @@ public class mark1 {
                     }
                     else{ // 제대로 입력시
                         JOptionPane.showMessageDialog(null,"회원가입이 완료되었습니다.");
+                        // 입력된 정보 제거
+                        name.setText("");
+                        email.setText("");
+                        id.setText("");
+                        paswward.setText("");
+                        hint.setText("");
+                        singup_CheckBox_메밀.setSelected(false);
+                        singup_CheckBox_밀.setSelected(false);
+                        singup_CheckBox_대두.setSelected(false);
+                        singup_CheckBox_호두.setSelected(false);
+                        singup_CheckBox_땅콩.setSelected(false);
+                        singup_CheckBox_복숭아.setSelected(false);
+                        singup_CheckBox_고등어.setSelected(false);
+                        singup_CheckBox_토마토.setSelected(false);
+                        singup_CheckBox_돼지고기.setSelected(false);
+                        singup_CheckBox_소고기.setSelected(false);
+                        singup_CheckBox_닭고기.setSelected(false);
+                        singup_CheckBox_난류.setSelected(false);
+                        singup_CheckBox_조개류.setSelected(false);
+                        singup_CheckBox_우유.setSelected(false);
+                        singup_CheckBox_새우.setSelected(false);
+                        singup_CheckBox_게.setSelected(false);
+                        singup_CheckBox_오징어.setSelected(false);
+                        singup_CheckBox_아황산.setSelected(false);
+                        singup_CheckBox_없음.setSelected(false);
+                        // 처음 화면으로 전환
                         secpage.setVisible(false);
                         Msecpage.setVisible(false);
                         startpage.setVisible(true);
@@ -1406,9 +1116,6 @@ public class mark1 {
                         login.setVisible(false);
                         signup.setVisible(false);
                         findpass.setVisible(false);
-                        manualpage.setVisible(false);
-                        explanpage.setVisible(false);
-                        explanpage1.setVisible(false);
                     }
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -1430,9 +1137,6 @@ public class mark1 {
                 login.setVisible(true);
                 signup.setVisible(false);
                 findpass.setVisible(false);
-                manualpage.setVisible(false);
-                explanpage.setVisible(false);
-                explanpage1.setVisible(false);
             }
         });
 
@@ -1450,6 +1154,12 @@ public class mark1 {
                     }
                     else{ // 제대로 입력시
                         JOptionPane.showMessageDialog(null,"비밀번호는 " + fpw.uesrpw + " 입니다.");
+                        // 입력된 정보 제거
+                        textField_name.setText("");
+                        textField_ID.setText("");
+                        textField_Hinit.setText("");
+                        textField_Email.setText("");
+                        // 로그인 페이지로 이동
                         secpage.setVisible(false);
                         Msecpage.setVisible(false);
                         startpage.setVisible(false);
@@ -1459,9 +1169,6 @@ public class mark1 {
                         login.setVisible(true);
                         signup.setVisible(false);
                         findpass.setVisible(false);
-                        manualpage.setVisible(false);
-                        explanpage.setVisible(false);
-                        explanpage1.setVisible(false);
                     }
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -1470,44 +1177,16 @@ public class mark1 {
         });
 
         //검색기능 구현
-        findpass_btn_1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    Findpw fpw = new Findpw(textField_name.getText(),textField_ID.getText(),textField_Hinit.getText(),textField_Email.getText());
-                    if(fpw.error == 1){ // 입력하지 않은 내용이 있을시
-                        JOptionPane.showMessageDialog(null,"입력하지 않은 내용이 있습니다.");
-                    }
-                    else if(fpw.error == 2){ // 입력한 4개의 정보와 동일한 회원정보를 가진 회원이 없으면
-                        JOptionPane.showMessageDialog(null,"입력한 회원정보는 존재하지 않습니다.");
-                    }
-                    else{ // 제대로 입력시
-                        JOptionPane.showMessageDialog(null,"비밀번호는 " + fpw.uesrpw + " 입니다.");
-                        secpage.setVisible(false);
-                        Msecpage.setVisible(false);
-                        startpage.setVisible(false);
-                        thridpage.setVisible(false);
-                        thirdpage_member.setVisible(false);
-                        endpage.setVisible(false);
-                        login.setVisible(true);
-                        signup.setVisible(false);
-                        findpass.setVisible(false);
-                        manualpage.setVisible(false);
-                        explanpage.setVisible(false);
-                        explanpage1.setVisible(false);
-                    }
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        });
-
-
-       //비회원 검색기능(ok)
+        //비회원 검색기능
         Action ok = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent arg0) {// 엔터치면 실행되는 부분
+                checkenter=1;
+                searchfoodname =textField.getText();
+
                 comboBox.removeAllItems();//콤보박스에 저장되어있는 목록 삭제
+                foodname ="";
+
                 if(textField.getText().equals("")){
                 }
                 else {
@@ -1518,12 +1197,14 @@ public class mark1 {
                 }
             }
         };
-
         //회원 검색기능(ok1)
         Action ok1 = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent arg0) {// 엔터치면 실행되는 부분
+                checkenter_1=1;
+                searchfoodname_1 =textField_1.getText();
                 comboBox_1.removeAllItems();
+                foodname_1 ="";
                 if(textField_1.getText().equals("")){
                 }
                 else {
@@ -1544,6 +1225,30 @@ public class mark1 {
         textField_1.getInputMap(JTable.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(enter1, "ENTER");
         textField_1.getActionMap().put("ENTER", ok1);
 
+        //콤보박스에서 선택된 상품명 foodname에 저장.
+        comboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if(e.getSource().equals(comboBox)) {
+                    JComboBox cb = (JComboBox) e.getSource();
+                    foodname = (String) cb.getSelectedItem();
+                } else {
+                    foodname = comboBox.getSelectedItem().toString();
+                }
+            }
+        });
+        comboBox_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource().equals(comboBox_1)) {
+                    JComboBox cb_1 = (JComboBox) e.getSource();
+                    foodname_1 = (String) cb_1.getSelectedItem();
+                } else {
+                    foodname_1 = comboBox_1.getSelectedItem().toString();
+                }
+            }
+        });
 
     }
 }
