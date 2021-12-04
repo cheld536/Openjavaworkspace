@@ -344,9 +344,8 @@ public class mark1 {
         textPane_1.setBounds(306, 168, 481, 370);
         thirdpage_member.add(textPane_1);
 
-        JLabel lblNewLabel_8_2 = new JLabel("\uAC80\uC0C9\uD55C \uC74C\uC2DD\uC758 \uAC80\uC0C9 \uACB0\uACFC\uC785\uB2C8\uB2E4.");
-        lblNewLabel_8_2.setFont(new Font("맑은 고딕", Font.PLAIN, 19));
-        lblNewLabel_8_2.setBounds(38, 119, 336, 23);
+        JLabel lblNewLabel_8_2 = new JLabel();
+        lblNewLabel_8_2.setBounds(38,200,250,166);
         thirdpage_member.add(lblNewLabel_8_2);
 
         JLabel lblNewLabel_6_1 = new JLabel("\u261E\uCDA9\uBD81\uB300 \uC8FC\uC704 \uB9DB\uC9D1\uC744 \uAC80\uC0C9\uD560\uB824\uBA74 \uC544\uB798\uC758 \uBC84\uD2BC\uC744 \uB20C\uB7EC\uC8FC\uC138\uC694.");
@@ -358,7 +357,6 @@ public class mark1 {
         thridpagemap_1.setBackground(SystemColor.activeCaption);
         thridpagemap_1.setBounds(306, 583, 138, 23);
         thirdpage_member.add(thridpagemap_1);
-
 
         JPanel thridpage = new JPanel();
         thridpage.setBounds(0, 0, 799, 686);
@@ -377,9 +375,8 @@ public class mark1 {
         textPane.setBounds(306, 168, 481, 370);
         thridpage.add(textPane);
 
-        JLabel lblNewLabel_8 = new JLabel("\uAC80\uC0C9\uD55C \uC74C\uC2DD\uC758 \uAC80\uC0C9 \uACB0\uACFC\uC785\uB2C8\uB2E4.");
-        lblNewLabel_8.setFont(new Font("맑은 고딕", Font.PLAIN, 19));
-        lblNewLabel_8.setBounds(38, 119, 336, 23);
+        JLabel lblNewLabel_8 = new JLabel();
+        lblNewLabel_8.setBounds(38,200,250,166);
         thridpage.add(lblNewLabel_8);
 
         JButton thridpagemap = new JButton("\uC9C0\uB3C4 \uAC80\uC0C9");
@@ -805,6 +802,11 @@ public class mark1 {
         explanbackbtn_1.setBounds(12, 608, 110, 58);
         explanpage1.add(explanbackbtn_1);
 
+        RoundedButton explanexit = new RoundedButton("Exit");
+        explanexit.setBackground(Color.GREEN);
+        explanexit.setBounds(659, 608, 110, 58);
+        explanpage1.add(explanexit);
+
         JTextPane explanpinkimage1_2 = new JTextPane();
         explanpinkimage1_2.setEditable(false);
         explanpinkimage1_2.setBackground(Color.PINK);
@@ -1040,6 +1042,26 @@ public class mark1 {
             }
         }   );
 
+        // 설명 페이지 종료를 누르면 처음 화면으로 넘어간다.
+        explanexit.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e){
+                secpage.setVisible(false);
+                Msecpage.setVisible(false);
+                startpage.setVisible(true);
+                thridpage.setVisible(false);
+                thirdpage_member.setVisible(false);
+                endpage.setVisible(false);
+                login.setVisible(false);
+                signup.setVisible(false);
+                findpass.setVisible(false);
+                manualpage.setVisible(false);
+                explanpage.setVisible(false);
+                explanpage1.setVisible(false);
+            }
+        }   );
+
 // 메뉴얼 버튼을 누르면 메뉴얼 페이지로 이동한다.
         manualbtn.addActionListener(new ActionListener(){
 
@@ -1116,9 +1138,7 @@ public class mark1 {
                 }
                 else {
                     GetInfo getInfo_1 = new GetInfo(foodname);
-                    JLabel imagelabel = new JLabel(new ImageIcon(getInfo_1.resizeImage));
-                    imagelabel.setBounds(38,200,250,166);
-                    thridpage.add(imagelabel);
+                    lblNewLabel_8.setIcon(new ImageIcon(getInfo_1.resizeImage));
 
                     secpage.setVisible(false);
                     Msecpage.setVisible(false);
@@ -1171,9 +1191,7 @@ public class mark1 {
                 }else
                 {
                     GetInfo getInfo_1 = new GetInfo(foodname_1);
-                    JLabel imagelabel_1 = new JLabel(new ImageIcon(getInfo_1.resizeImage));
-                    imagelabel_1.setBounds(38,200,250,166);
-                    thirdpage_member.add(imagelabel_1);
+                    lblNewLabel_8_2.setIcon(new ImageIcon(getInfo_1.resizeImage));
 
                     secpage.setVisible(false);
                     Msecpage.setVisible(false);
@@ -1243,7 +1261,7 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e){
                 try {
-                    Desktop.getDesktop().browse(new URI("https://map.naver.com/v5/search/" + "맛집"+ "?c=14188054.2447769,4387230.2565216,15,0,0,0,dh")); }
+                    Desktop.getDesktop().browse(new URI("https://map.naver.com/v5/search/" + "맛집"+ "?c=14187872.7940069,4387595.8869521,15,0,0,0,dh")); }
                 catch (IOException a) { a.printStackTrace(); }
                 catch (URISyntaxException a) { a.printStackTrace();
                 }
@@ -1297,7 +1315,7 @@ public class mark1 {
             @Override
             public void actionPerformed(ActionEvent e){
                 try {
-                    Desktop.getDesktop().browse(new URI("https://map.naver.com/v5/search/" + "맛집"+ "?c=14188054.2447769,4387230.2565216,15,0,0,0,dh")); }
+                    Desktop.getDesktop().browse(new URI("https://map.naver.com/v5/search/" + "맛집"+ "?c=14187872.7940069,4387595.8869521,15,0,0,0,dh")); }
                 catch (IOException a) { a.printStackTrace(); }
                 catch (URISyntaxException a) { a.printStackTrace();
                 }
