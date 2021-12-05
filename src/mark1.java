@@ -29,6 +29,8 @@ public class mark1 {
     public String foodname_1="";
     public int checkenter =0;
     public int checkenter_1 =0;
+    public String username = "사용자";
+    public String result = "";
 
     /*바탕화면*/
     ImageIcon startig = new ImageIcon("image/food.jpg");
@@ -340,13 +342,21 @@ public class mark1 {
         btnnextpage3_1.setBounds(690, 639, 97, 23);
         thirdpage_member.add(btnnextpage3_1);
 
-        JTextPane textPane_1 = new JTextPane();
-        textPane_1.setBounds(306, 168, 481, 370);
+        JTextPane textPane_1= new JTextPane();
+        textPane_1.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+        textPane_1.setEditable(false);
+        textPane_1.setContentType("text/html");
+        textPane_1.setBounds(306,200,440,350);
         thirdpage_member.add(textPane_1);
 
         JLabel lblNewLabel_8_2 = new JLabel();
         lblNewLabel_8_2.setBounds(38,200,250,166);
         thirdpage_member.add(lblNewLabel_8_2);
+
+        JLabel lblNewLabel_8_2_1 = new JLabel();
+        lblNewLabel_8_2_1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+        lblNewLabel_8_2_1.setBounds(38,10,700,166);
+        thirdpage_member.add(lblNewLabel_8_2_1);
 
         JLabel lblNewLabel_6_1 = new JLabel("\u261E\uCDA9\uBD81\uB300 \uC8FC\uC704 \uB9DB\uC9D1\uC744 \uAC80\uC0C9\uD560\uB824\uBA74 \uC544\uB798\uC758 \uBC84\uD2BC\uC744 \uB20C\uB7EC\uC8FC\uC138\uC694.");
         lblNewLabel_6_1.setFont(new Font("맑은 고딕", Font.PLAIN, 16));
@@ -371,13 +381,21 @@ public class mark1 {
         btnnextpage3.setBounds(690, 639, 97, 23);
         thridpage.add(btnnextpage3);
 
-        JTextPane textPane = new JTextPane();
-        textPane.setBounds(306, 168, 481, 370);
-        thridpage.add(textPane);
-
         JLabel lblNewLabel_8 = new JLabel();
         lblNewLabel_8.setBounds(38,200,250,166);
         thridpage.add(lblNewLabel_8);
+
+        JLabel lblNewLabel_8_1_1 = new JLabel();
+        lblNewLabel_8_1_1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+        lblNewLabel_8_1_1.setBounds(38,10,700,166);
+        thridpage.add(lblNewLabel_8_1_1);
+
+        JTextPane textPane_1_2= new JTextPane();
+        textPane_1_2.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+        textPane_1_2.setEditable(false);
+        textPane_1_2.setContentType("text/html");
+        textPane_1_2.setBounds(306,200,440,350);
+        thridpage.add(textPane_1_2);
 
         JButton thridpagemap = new JButton("\uC9C0\uB3C4 \uAC80\uC0C9");
         thridpagemap.setBackground(SystemColor.activeCaption);
@@ -1140,6 +1158,91 @@ public class mark1 {
                     GetInfo getInfo_1 = new GetInfo(foodname);
                     lblNewLabel_8.setIcon(new ImageIcon(getInfo_1.resizeImage));
 
+                    String allergy_code = "";
+                    if(secpage_Checkbox_메밀.isSelected())
+                        allergy_code += "01, ";
+                    if(secpage_Checkbox_밀.isSelected())
+                        allergy_code += "02, ";
+                    if(secpage_Checkbox_대두.isSelected())
+                        allergy_code += "03, ";
+                    if(secpage_Checkbox_호두.isSelected())
+                        allergy_code += "04, ";
+                    if(secpage_Checkbox_땅콩.isSelected())
+                        allergy_code += "05, ";
+                    if(secpage_Checkbox_복숭아.isSelected())
+                        allergy_code += "06, ";
+                    if(secpage_Checkbox_고등어.isSelected())
+                        allergy_code += "07, ";
+                    if(secpage_Checkbox_토마토.isSelected())
+                        allergy_code += "08, ";
+                    if(secpage_Checkbox_돼지고기.isSelected())
+                        allergy_code += "09, ";
+                    if(secpage_Checkbox_소고기.isSelected())
+                        allergy_code += "10, ";
+                    if(secpage_Checkbox_닭고기.isSelected())
+                        allergy_code += "11, ";
+                    if(secpage_Checkbox_난류.isSelected())
+                        allergy_code += "12, ";
+                    if(secpage_Checkbox_조개류.isSelected())
+                        allergy_code += "13, ";
+                    if(secpage_Checkbox_우유.isSelected())
+                        allergy_code += "14, ";
+                    if(secpage_Checkbox_새우.isSelected())
+                        allergy_code += "15, ";
+                    if(secpage_Checkbox_게.isSelected())
+                        allergy_code += "16, ";
+                    if(secpage_Checkbox_오징어.isSelected())
+                        allergy_code += "17, ";
+                    if(secpage_Checkbox_아황산.isSelected())
+                        allergy_code += "18, ";
+                    if(secpage_Checkbox_없음.isSelected())
+                        allergy_code = "";
+
+                    try {
+                        CheckAllergy ca = new CheckAllergy(foodname,allergy_code);
+                        if(ca.flag == 0){
+                            result = username + "님은 " + foodname + "(을)를 먹을 수 있습니다.";
+                            if(result.length() > 50)
+                                result = "사용자 님은 이 음식(을)를 먹을 수 있습니다.";
+                        }
+                        else{
+                            result = username + "님은 " + foodname + "(을)를 먹을 수 없습니다.";
+                            if(result.length() > 50)
+                                result = "사용자 님은 이 음식(을)를 먹을 수 없습니다.";
+                        }
+                        lblNewLabel_8_1_1.setText(result);
+
+                        String info = ""; // 식품명, 재료, 알러지 정보를 담을 변수
+                        info += "<html><b>제품명:</b> " + foodname + "<br><b>재료:</b> " + ca.ingredient + "<br>"; // 제품명, 재료 추가
+
+                        //알러지 정보 추가
+                        info += "<b>알러지 정보:</b> ";
+                        int k = 0;
+                        if(!ca.same_allergy.isEmpty()){ // 사용자와 해당 음식에 같은 알러지 정보가 존재하면
+                            for(int i=0;i<ca.all_allergy.size();i++){
+                                // 해당 음식의 알러지 정보를 출력하는데 같은 알러지는 빨간색으로 표시
+                                if(ca.all_allergy.get(i).equals(ca.same_allergy.get(k))){
+                                    info += "<font color=\"red\"><b> " + ca.all_allergy.get(i) + "</b></font>, ";
+                                    if(k<ca.same_allergy.size()-1)
+                                        k++;
+                                }
+                                else
+                                    info += ca.all_allergy.get(i) + ", ";
+                            }
+                        }
+                        else{ // 사용자와 해당 음식에 같은 알러지 정보가 존재하지 않으면
+                            for(int i=0;i<ca.all_allergy.size();i++){
+                                // 해당 음식의 알러지 정보를 출력
+                                info += ca.all_allergy.get(i) + ", ";
+                            }
+                        }
+                        info = info.substring(0,info.length()-2); // 마지막 콤마 제거
+                        info += "</html>";
+                        textPane_1_2.setText(info);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+
                     secpage.setVisible(false);
                     Msecpage.setVisible(false);
                     startpage.setVisible(false);
@@ -1192,6 +1295,51 @@ public class mark1 {
                 {
                     GetInfo getInfo_1 = new GetInfo(foodname_1);
                     lblNewLabel_8_2.setIcon(new ImageIcon(getInfo_1.resizeImage));
+
+                    try {
+                        CheckAllergyMember cam = new CheckAllergyMember(foodname_1,username);
+                        if(cam.flag == 0){
+                            result = username + "님은 " + foodname_1 + "(을)를 먹을 수 있습니다.";
+                            if(result.length() > 50)
+                                result = "사용자 님은 이 음식(을)를 먹을 수 있습니다.";
+                        }
+                        else{
+                            result = username + "님은 " + foodname_1 + "(을)를 먹을 수 없습니다.";
+                            if(result.length() > 50)
+                                result = "사용자 님은 이 음식(을)를 먹을 수 없습니다.";
+                        }
+                        lblNewLabel_8_2_1.setText(result);
+
+                        String info = ""; // 식품명, 재료, 알러지 정보를 담을 변수
+                        info += "<html><b>제품명:</b> " + foodname_1 + "<br><b>재료:</b> " + cam.ingredient + "<br>"; // 제품명, 재료 추가
+
+                        //알러지 정보 추가
+                        info += "<b>알러지 정보:</b> ";
+                        int k = 0;
+                        if(!cam.same_allergy.isEmpty()){ // 사용자와 해당 음식에 같은 알러지 정보가 존재하면
+                            for(int i=0;i<cam.all_allergy.size();i++){
+                                // 해당 음식의 알러지 정보를 출력하는데 같은 알러지는 빨간색으로 표시
+                                if(cam.all_allergy.get(i).equals(cam.same_allergy.get(k))){
+                                    info += "<font color=\"red\"><b> " + cam.all_allergy.get(i) + "</b></font>, ";
+                                    if(k<cam.same_allergy.size()-1)
+                                        k++;
+                                }
+                                else
+                                    info += cam.all_allergy.get(i) + ", ";
+                            }
+                        }
+                        else{ // 사용자와 해당 음식에 같은 알러지 정보가 존재하지 않으면
+                            for(int i=0;i<cam.all_allergy.size();i++){
+                                // 해당 음식의 알러지 정보를 출력
+                                info += cam.all_allergy.get(i) + ", ";
+                            }
+                        }
+                        info = info.substring(0,info.length()-2); // 마지막 콤마 제거
+                        info += "</html>";
+                        textPane_1.setText(info);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
 
                     secpage.setVisible(false);
                     Msecpage.setVisible(false);
@@ -1422,7 +1570,8 @@ public class mark1 {
                     }
                     else{ // 제대로 입력시
                         JOptionPane.showMessageDialog(null,"로그인 완료");
-                        NameLocation.setText(log.name); // 로그인 후 페이지에 회원 이름 출력
+                        username = log.name;
+                        NameLocation.setText(username); // 로그인 후 페이지에 회원 이름 출력
                         // 로그인 하면서 적은 내용 제거
                         loginID.setText("");
                         loginpassward.setText("");
